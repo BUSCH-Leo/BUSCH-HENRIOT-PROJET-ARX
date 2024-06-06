@@ -1,0 +1,25 @@
+C:\Users\tyyyty\Desktop\travail\iut année 1\IHM\R202-IHM-TP8-Etud\ARX\ARX\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\tyyyty\Desktop\travail\iut année 1\IHM\R202-IHM-TP8-Etud\ARX\ARX\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\tyyyty\Desktop\travail\iut année 1\IHM\R202-IHM-TP8-Etud\ARX\ARX\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\tyyyty\Desktop\travail\iut année 1\IHM\R202-IHM-TP8-Etud\ARX\ARX\obj\Debug\net8.0-windows\ARX_MarkupCompile.cache
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX_MarkupCompile.cache
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\bin\Debug\net8.0-windows\ARX.exe
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\bin\Debug\net8.0-windows\ARX.deps.json
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\bin\Debug\net8.0-windows\ARX.runtimeconfig.json
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\bin\Debug\net8.0-windows\ARX.dll
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\bin\Debug\net8.0-windows\ARX.pdb
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\view\GrilleJeu.g.cs
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\view\GrilleJeu.baml
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.g.resources
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.AssemblyInfoInputs.cache
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.AssemblyInfo.cs
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.csproj.CoreCompileInputs.cache
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.dll
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\refint\ARX.dll
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.pdb
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.genruntimeconfig.cache
+C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\ref\ARX.dll
