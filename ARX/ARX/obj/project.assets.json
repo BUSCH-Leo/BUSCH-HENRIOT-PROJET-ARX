@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tyyyty\\Desktop\\travail\\iut année 1\\saé\\sae ARX\\ARX\\ARX\\ARX.csproj",
+      "projectUniqueName": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\ARX.csproj",
       "projectName": "ARX",
-      "projectPath": "C:\\Users\\tyyyty\\Desktop\\travail\\iut année 1\\saé\\sae ARX\\ARX\\ARX\\ARX.csproj",
+      "projectPath": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\ARX.csproj",
       "packagesPath": "C:\\Users\\tyyyty\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tyyyty\\Desktop\\travail\\iut année 1\\saé\\sae ARX\\ARX\\ARX\\obj\\",
+      "outputPath": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

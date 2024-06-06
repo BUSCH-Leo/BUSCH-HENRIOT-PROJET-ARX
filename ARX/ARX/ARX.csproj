@@ -9,6 +9,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="view\Images\test1.png" />
+    <None Remove="view\Images\test2.png" />
+    <None Remove="view\Images\test3.png" />
+    <None Remove="view\Images\test4.png" />
+    <None Remove="view\Images\test5.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="view\Images\test1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\test2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\test3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\test4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\test5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="model\" />
   </ItemGroup>
 
