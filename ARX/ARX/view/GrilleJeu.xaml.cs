@@ -36,12 +36,12 @@ namespace ARX.view
             {
                 for (int j = 0; j < size; j++)
                 {
-                    // Ajouter une cellule d'image
                     Image cellImage = new Image();
 
                     int randomImageIndex = rand.Next(1, 6);
-                    string imagePath = @"C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\view\Images\test" + randomImageIndex + ".png";
-                    BitmapImage bitmap = new BitmapImage(new Uri(imagePath));
+                    string imagePath = $"pack://application:,,,/ARX;component/view/Images/test{randomImageIndex}.png";
+                    Uri imageUri = new Uri(imagePath, UriKind.Absolute);
+                    BitmapImage bitmap = new BitmapImage(imageUri);
                     cellImage.Source = bitmap;
 
                     cellImage.Stretch = Stretch.Fill;
