@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ARX.Model
+
+namespace ARX.model
 {
 
     public class Personnage
@@ -38,7 +39,7 @@ namespace ARX.Model
         }
     }
 
-    public class Ennemis
+    public class Enemy
     {
         public string Nom { get; set; }
         public string Classe { get; set; }
@@ -52,7 +53,7 @@ namespace ARX.Model
         public string Action { get; set; }
         public int Money { get; set; }
 
-        public Ennemis(string nom, string classe, Armes armes, int vieMax, int vie, int force, int dexterite, Effets effets, int destination, string action, int money)
+        public Enemy(string nom, string classe, Armes armes, int vieMax, int vie, int force, int dexterite, Effets effets, int destination, string action, int money)
         {
             Nom = nom;
             Classe = classe;

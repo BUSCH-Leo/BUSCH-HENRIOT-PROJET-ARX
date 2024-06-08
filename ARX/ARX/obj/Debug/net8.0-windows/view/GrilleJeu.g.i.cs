@@ -60,7 +60,7 @@ namespace ARX.view {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ARX;V1.0.0.0;component/view/grillejeu.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ARX;component/view/grillejeu.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\view\GrilleJeu.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

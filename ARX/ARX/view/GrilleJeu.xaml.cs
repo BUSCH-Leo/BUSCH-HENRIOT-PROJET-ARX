@@ -3,12 +3,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using ARX.model;
 
 namespace ARX.view
 {
     public partial class GrilleJeu : UserControl
     {
-        private int taille = 5;
+        private int taille = labyactuel.taille;
 
         public GrilleJeu()
         {

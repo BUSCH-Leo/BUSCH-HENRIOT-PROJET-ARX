@@ -23,3 +23,19 @@ C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8
 C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.pdb
 C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.genruntimeconfig.cache
 C:\Users\tyyyty\Desktop\travail\iut année 1\saé\sae ARX\ARX\ARX\obj\Debug\net8.0-windows\ref\ARX.dll
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\GrilleJeu.baml
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\GrilleJeu.g.cs
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX_Content.g.cs
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX_MarkupCompile.cache
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.g.resources
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.AssemblyInfoInputs.cache
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.AssemblyInfo.cs
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.csproj.CoreCompileInputs.cache
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.sourcelink.json
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.dll
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\refint\ARX.dll
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.pdb

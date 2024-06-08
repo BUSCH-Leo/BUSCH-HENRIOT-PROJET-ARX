@@ -5,6 +5,8 @@ namespace ARX
 {
     public partial class MainWindow : Window
     {
+        public int taille = 10;
+        public string type = "imparfait";
         public MainWindow()
         {
             InitializeComponent();

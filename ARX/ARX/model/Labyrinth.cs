@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using ARX.model;
 
 namespace ARX.model
 {
-    class Cellule
+    public class Cellule
     {
+        public int X { get; set; }
+        public int Y { get; set; }
         public string BackgroundImage { get; set; }
         public string WallImage { get; set; }
         public bool NorthWall { get; set; }
@@ -24,6 +27,8 @@ namespace ARX.model
             WestWall = westWall;
             LootItems = lootItems;
             EnemyInCell = enemyInCell;
+            X = x;
+            Y = y;
         }
     }
 
@@ -38,8 +43,9 @@ namespace ARX.model
         public int Difficulte { get; set; }
         public int MatriceAdjacence { get; set; }
         public int Visibilite { get; set; }
+        public List<Cellule> Cellules { get; set; }
 
-        public void Initialize(int taille, string type, int profondeur, int quotaSpawn, int pourcentEnnemi, int pourcentCoffre, int difficulte, int matriceAdjacence, int visibilite)
+        public void Initialize(int taille, string type, int profondeur, int quotaSpawn, int pourcentEnnemi, int pourcentCoffre, int difficulte, int matriceAdjacence, int visibilite, List<Cellule> Cellules)
         {
             Taille = taille;
             Type = type;
@@ -50,6 +56,7 @@ namespace ARX.model
             Difficulte = difficulte;
             MatriceAdjacence = matriceAdjacence;
             Visibilite = visibilite;
+            Cellules = Cellules;
         }
     }
 
