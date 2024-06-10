@@ -33,8 +33,10 @@ namespace ARX.view
 
             foreach (var cellule in labyrinthe.Cellules)
             {
-                Image cellImage = new Image();
 
+                Console.WriteLine($"Cellule [{cellule.X}, {cellule.Y}]: NorthWall={cellule.NorthWall}, SouthWall={cellule.SouthWall}, EastWall={cellule.EastWall}, WestWall={cellule.WestWall}");
+
+                Image cellImage = new Image();
                 string imagePath = cellule.Fond;
                 Uri imageUri = new Uri(imagePath, UriKind.Absolute);
                 BitmapImage bitmap = new BitmapImage(imageUri);
@@ -105,6 +107,7 @@ namespace ARX.view
                 Grid.SetColumn(westWall, cellule.X);
             }
         }
+
 
         private void OptionsButton_Click(object sender, RoutedEventArgs e)
         {

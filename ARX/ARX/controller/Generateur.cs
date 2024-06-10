@@ -103,7 +103,14 @@ public class Program
                 laby.Cellules[cellule2].EastWall = false;
             }
         }
+
+        // Ajout de messages de débogage
+        Console.WriteLine($"Cellule1: ({x1}, {y1}), Cellule2: ({x2}, {y2})");
+        Console.WriteLine($"Murs Cellule1: N:{laby.Cellules[cellule1].NorthWall}, S:{laby.Cellules[cellule1].SouthWall}, E:{laby.Cellules[cellule1].EastWall}, W:{laby.Cellules[cellule1].WestWall}");
+        Console.WriteLine($"Murs Cellule2: N:{laby.Cellules[cellule2].NorthWall}, S:{laby.Cellules[cellule2].SouthWall}, E:{laby.Cellules[cellule2].EastWall}, W:{laby.Cellules[cellule2].WestWall}");
     }
+
+
 
     public static int RandomProfondeur(ref Labyrinthe laby, ref List<bool> visite, int cellule)
     {
