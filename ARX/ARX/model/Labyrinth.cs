@@ -8,8 +8,8 @@ namespace ARX.model
     {
         public int X { get; set; }
         public int Y { get; set; }
-        public string BackgroundImage { get; set; }
-        public string WallImage { get; set; }
+        public string Fond { get; set; }
+        public string Mur { get; set; }
         public bool NorthWall { get; set; }
         public bool SouthWall { get; set; }
         public bool EastWall { get; set; }
@@ -17,18 +17,18 @@ namespace ARX.model
         public List<Loot> LootItems { get; set; }
         public Enemy EnemyInCell { get; set; }
 
-        public Cellule(string backgroundImage, string wallImage, bool northWall, bool southWall, bool eastWall, bool westWall, List<Loot> lootItems, Enemy enemyInCell)
+        public Cellule(int x, int y, string fond, string mur, bool northWall, bool southWall, bool eastWall, bool westWall, List<Loot> lootItems, Enemy enemyInCell)
         {
-            BackgroundImage = backgroundImage;
-            WallImage = wallImage;
+            X = x;
+            Y = y;
+            Fond = fond;
+            Mur = mur;
             NorthWall = northWall;
             SouthWall = southWall;
             EastWall = eastWall;
             WestWall = westWall;
             LootItems = lootItems;
             EnemyInCell = enemyInCell;
-            X = x;
-            Y = y;
         }
     }
 
@@ -41,11 +41,11 @@ namespace ARX.model
         public int PourcentEnnemi { get; set; }
         public int PourcentCoffre { get; set; }
         public int Difficulte { get; set; }
-        public int MatriceAdjacence { get; set; }
+        public List<List<bool>> MatriceAdjacence { get; set; } // Correction de la syntaxe ici
         public int Visibilite { get; set; }
         public List<Cellule> Cellules { get; set; }
 
-        public void Initialize(int taille, string type, int profondeur, int quotaSpawn, int pourcentEnnemi, int pourcentCoffre, int difficulte, int matriceAdjacence, int visibilite, List<Cellule> Cellules)
+        public void Initialize(int taille, string type, int profondeur, int quotaSpawn, int pourcentEnnemi, int pourcentCoffre, int difficulte, int visibilite)
         {
             Taille = taille;
             Type = type;
@@ -54,10 +54,38 @@ namespace ARX.model
             PourcentEnnemi = pourcentEnnemi;
             PourcentCoffre = pourcentCoffre;
             Difficulte = difficulte;
-            MatriceAdjacence = matriceAdjacence;
             Visibilite = visibilite;
-            Cellules = Cellules;
+            Cellules = new List<Cellule>();
+
+            MatriceAdjacence = new List<List<bool>>();
+            for (int i = 0; i < taille * taille; i++)
+            {
+                List<bool> row = new List<bool>(new bool[taille * taille]);
+                MatriceAdjacence.Add(row);
+            }
+
+            Random random = new Random();
+            int nbfond= 5;
+            int nbmurs = 5;
+
+            for (int x = 0; x < taille; x++)
+            {
+                for (int y = 0; y < taille; y++)
+                {
+                    string fond = $"fond{random.Next(1, nbfond + 1)}.png";
+                    string mur = $"mur{random.Next(1, nbmurs + 1)}.png";
+
+                    var cellule = new Cellule(
+                        x, y,
+                        fond,
+                        mur,
+                        false, false, false, false,
+                        new List<Loot>(),
+                        null
+                    );
+                    Cellules.Add(cellule);
+                }
+            }
         }
     }
-
 }

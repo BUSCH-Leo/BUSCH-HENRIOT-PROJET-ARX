@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ARX.model;
+using System;
 using System.Collections.Generic;
 
 public class Loot
@@ -79,7 +80,7 @@ public class Program
         return cellule;
     }
 
-    public static int LabyrintheParfait(List<List<bool>> matrice_adjacence, int taille, int entreX, int entreY)
+    public static int LabyrintheParfait(List<List<bool>> matrice_adjacence, int taille, int entreX, int entreY, Labyrinthe laby)
     {
         int cellule = (entreX + entreY * taille);
         List<bool> visite = new List<bool>(new bool[taille * taille]);
@@ -87,7 +88,7 @@ public class Program
         return cellule;
     }
 
-    public static int LabyrinthePlusQueParfait(List<List<bool>> matrice_adjacence, int taille, int entreX, int entreY)
+    public static int LabyrinthePlusQueParfait(List<List<bool>> matrice_adjacence, int taille, int entreX, int entreY, Labyrinthe laby)
     {
         int cellule1 = (entreX + entreY * taille);
         List<bool> visite1 = new List<bool>(new bool[taille * taille]);
@@ -98,7 +99,7 @@ public class Program
         return cellule2;
     }
 
-    public static int LabyrintheImparfait(List<List<bool>> matrice_adjacence, int taille, int entreX, int entreY, float nbtrou)
+    public static int LabyrintheImparfait(List<List<bool>> matrice_adjacence, int taille, int entreX, int entreY, float nbtrou, Labyrinthe laby)
     {
         nbtrou = (taille * taille) * (nbtrou / 100);
         int cellule = (entreX + entreY * taille);
