@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="view\Images\fond1.png" />
+    <None Remove="view\Images\fond2.png" />
+    <None Remove="view\Images\fond3.png" />
+    <None Remove="view\Images\fond4.png" />
+    <None Remove="view\Images\fond5.png" />
+    <None Remove="view\Images\mur1.png" />
+    <None Remove="view\Images\mur2.png" />
     <None Remove="view\Images\test1.png" />
     <None Remove="view\Images\test2.png" />
     <None Remove="view\Images\test3.png" />
@@ -17,19 +24,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="view\Images\test1.png">
+    <Content Include="view\Images\fond1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="view\Images\test2.png">
+    <Content Include="view\Images\fond2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="view\Images\test3.png">
+    <Content Include="view\Images\fond3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="view\Images\test4.png">
+    <Content Include="view\Images\fond4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="view\Images\test5.png">
+    <Content Include="view\Images\fond5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\mur1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\mur2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

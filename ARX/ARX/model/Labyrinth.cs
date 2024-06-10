@@ -42,10 +42,10 @@ namespace ARX.model
         public int PourcentCoffre { get; set; }
         public int Difficulte { get; set; }
         public List<List<bool>> MatriceAdjacence { get; set; } // Correction de la syntaxe ici
-        public int Visibilite { get; set; }
+        public bool Visibilite { get; set; }
         public List<Cellule> Cellules { get; set; }
 
-        public void Initialize(int taille, string type, int profondeur, int quotaSpawn, int pourcentEnnemi, int pourcentCoffre, int difficulte, int visibilite)
+        public void Initialize(int taille, string type, int profondeur, int quotaSpawn, int pourcentEnnemi, int pourcentCoffre, int difficulte, bool visibilite)
         {
             Taille = taille;
             Type = type;
@@ -66,20 +66,20 @@ namespace ARX.model
 
             Random random = new Random();
             int nbfond= 5;
-            int nbmurs = 5;
+            int nbmurs = 2;
 
             for (int x = 0; x < taille; x++)
             {
                 for (int y = 0; y < taille; y++)
                 {
-                    string fond = $"fond{random.Next(1, nbfond + 1)}.png";
-                    string mur = $"mur{random.Next(1, nbmurs + 1)}.png";
+                    string fond = $"pack://application:,,,/ARX;component/view/Images/fond{random.Next(1, nbfond + 1)}.png";
+                    string mur = $"pack://application:,,,/ARX;component/view/Images/mur{random.Next(1, nbmurs + 1)}.png";
 
                     var cellule = new Cellule(
                         x, y,
                         fond,
                         mur,
-                        false, false, false, false,
+                        true, true, true, true,
                         new List<Loot>(),
                         null
                     );

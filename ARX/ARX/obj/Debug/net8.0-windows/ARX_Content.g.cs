@@ -8,10 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/test1.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/test2.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/test3.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/test4.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/test5.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/fond1.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/fond2.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/fond3.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/fond4.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/fond5.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/mur1.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/mur2.png")]
 
 

@@ -31,9 +31,12 @@ public class Program
         return copy;
     }
 
-    public static int VoisinRandom(List<List<bool>> matrice_adjacence, List<bool> visite, int cellule, int taille)
+    public static int VoisinRandom(ref Labyrinthe laby, List<bool> visite, int cellule)
     {
         List<int> cellules = new List<int>();
+        int taille = laby.Taille;
+        List<List<bool>> matrice_adjacence = laby.MatriceAdjacence;
+        List<Cellule> cellulesList = laby.Cellules;
 
         if (cellule - taille >= 0 && !visite[cellule - taille])
         {
@@ -66,55 +69,93 @@ public class Program
         return voisin;
     }
 
-    public static int RandomProfondeur(List<List<bool>> matrice_adjacence, List<bool> visite, int cellule, int taille)
+    public static void LiaisonCellules(ref Labyrinthe laby, int cellule1, int cellule2)
+    {
+        int taille = laby.Taille;
+        int x1 = cellule1 % taille;
+        int y1 = cellule1 / taille;
+        int x2 = cellule2 % taille;
+        int y2 = cellule2 / taille;
+
+        if (x1 == x2)
+        {
+            if (y1 < y2)
+            {
+                laby.Cellules[cellule1].SouthWall = false;
+                laby.Cellules[cellule2].NorthWall = false;
+            }
+            else
+            {
+                laby.Cellules[cellule1].NorthWall = false;
+                laby.Cellules[cellule2].SouthWall = false;
+            }
+        }
+        else
+        {
+            if (x1 < x2)
+            {
+                laby.Cellules[cellule1].EastWall = false;
+                laby.Cellules[cellule2].WestWall = false;
+            }
+            else
+            {
+                laby.Cellules[cellule1].WestWall = false;
+                laby.Cellules[cellule2].EastWall = false;
+            }
+        }
+    }
+
+    public static int RandomProfondeur(ref Labyrinthe laby, ref List<bool> visite, int cellule)
     {
         visite[cellule] = true;
-        int voisin = VoisinRandom(matrice_adjacence, visite, cellule, taille);
+        int voisin = VoisinRandom(ref laby, visite, cellule);
         while (voisin != -1)
         {
-            matrice_adjacence[cellule][voisin] = true;
-            matrice_adjacence[voisin][cellule] = true;
-            RandomProfondeur(matrice_adjacence, visite, voisin, taille);
-            voisin = VoisinRandom(matrice_adjacence, visite, cellule, taille);
+            laby.MatriceAdjacence[cellule][voisin] = true;
+            laby.MatriceAdjacence[voisin][cellule] = true;
+            LiaisonCellules(ref laby, cellule, voisin);
+            RandomProfondeur(ref laby, ref visite, voisin);
+            voisin = VoisinRandom(ref laby, visite, cellule);
         }
         return cellule;
     }
 
-    public static int LabyrintheParfait(List<List<bool>> matrice_adjacence, int taille, int entreX, int entreY, Labyrinthe laby)
+    public static int LabyrintheParfait(ref Labyrinthe laby, int entreX, int entreY)
     {
-        int cellule = (entreX + entreY * taille);
-        List<bool> visite = new List<bool>(new bool[taille * taille]);
-        RandomProfondeur(matrice_adjacence, visite, cellule, taille);
+        int cellule = (entreX + entreY * laby.Taille);
+        List<bool> visite = new List<bool>(new bool[laby.Taille * laby.Taille]);
+        RandomProfondeur(ref laby, ref visite, cellule);
         return cellule;
     }
 
-    public static int LabyrinthePlusQueParfait(List<List<bool>> matrice_adjacence, int taille, int entreX, int entreY, Labyrinthe laby)
+    public static int LabyrinthePlusQueParfait(ref Labyrinthe laby, int entreX, int entreY)
     {
-        int cellule1 = (entreX + entreY * taille);
-        List<bool> visite1 = new List<bool>(new bool[taille * taille]);
-        RandomProfondeur(matrice_adjacence, visite1, cellule1, taille);
-        int cellule2 = (entreX + entreY * taille);
-        List<bool> visite2 = new List<bool>(new bool[taille * taille]);
-        RandomProfondeur(matrice_adjacence, visite2, cellule2, taille);
+        int cellule1 = (entreX + entreY * laby.Taille);
+        List<bool> visite1 = new List<bool>(new bool[laby.Taille * laby.Taille]);
+        RandomProfondeur(ref laby, ref visite1, cellule1);
+
+        int cellule2 = (entreX + entreY * laby.Taille);
+        List<bool> visite2 = new List<bool>(new bool[laby.Taille * laby.Taille]);
+        RandomProfondeur(ref laby, ref visite2, cellule2);
+
         return cellule2;
     }
 
-    public static int LabyrintheImparfait(List<List<bool>> matrice_adjacence, int taille, int entreX, int entreY, float nbtrou, Labyrinthe laby)
+    public static int LabyrintheImparfait(ref Labyrinthe laby, int entreX, int entreY, float nbtrou)
     {
-        nbtrou = (taille * taille) * (nbtrou / 100);
-        int cellule = (entreX + entreY * taille);
-        List<bool> visite = new List<bool>(new bool[taille * taille]);
-        RandomProfondeur(matrice_adjacence, visite, cellule, taille);
-        int voisin;
-        int numrand;
-        List<bool> visitevide = new List<bool>(new bool[taille * taille]);
+        nbtrou = (laby.Taille * laby.Taille) * (nbtrou / 100);
+        int cellule = (entreX + entreY * laby.Taille);
+        List<bool> visite = new List<bool>(new bool[laby.Taille * laby.Taille]);
+        RandomProfondeur(ref laby, ref visite, cellule);
+
+        List<bool> visitevide = new List<bool>(new bool[laby.Taille * laby.Taille]);
         int y = 0;
         for (int i = 0; i < nbtrou; i++)
         {
             Random rnd = new Random();
-            numrand = rnd.Next(0, taille * taille);
-            voisin = VoisinRandom(matrice_adjacence, visitevide, numrand, taille);
-            if (matrice_adjacence[numrand][voisin] == true)
+            int numrand = rnd.Next(0, laby.Taille * laby.Taille);
+            int voisin = VoisinRandom(ref laby, visitevide, numrand);
+            if (laby.MatriceAdjacence[numrand][voisin] == true)
             {
                 i--;
                 y++;
@@ -122,45 +163,11 @@ public class Program
             }
             else
             {
-                matrice_adjacence[numrand][voisin] = true;
-                matrice_adjacence[voisin][numrand] = true;
+                laby.MatriceAdjacence[numrand][voisin] = true;
+                laby.MatriceAdjacence[voisin][numrand] = true;
                 y = 0;
             }
         }
         return cellule;
-    }
-
-    public static Loot[,] PlaceLoot(List<List<bool>> matrice_adjacence, int taille, int proba)
-    {
-        Loot[,] LootsMatrix = new Loot[taille, taille];
-
-        for (int i = 0; i < taille; ++i)
-        {
-            for (int j = 0; j < taille; ++j)
-            {
-                Random rnd = new Random();
-                int randType = rnd.Next(0, 100);
-                int randValue = rnd.Next(1, 9);    // Valeur à changer au besoin
-                if (randType < proba * 50 / 100) // 50%
-                {
-                    LootsMatrix[i, j] = new Loot();
-                    LootsMatrix[i, j].type = "Ennemi";
-                    LootsMatrix[i, j].value = randValue * 2; // Degats entre 2 et 20
-                }
-                else if (randType > proba * 50 / 100 && randType <= (proba * 50 / 100 + proba * 25 / 100)) // 25 %
-                {
-                    LootsMatrix[i, j] = new Loot();
-                    LootsMatrix[i, j].type = "Soin";
-                    LootsMatrix[i, j].value = randValue;
-                }
-                else if (randType > (proba * 75 / 100) && randType <= proba) // 25 %
-                {
-                    LootsMatrix[i, j] = new Loot();
-                    LootsMatrix[i, j].type = "Tresor";
-                    LootsMatrix[i, j].value = randValue;
-                }
-            }
-        }
-        return LootsMatrix;
     }
 }
