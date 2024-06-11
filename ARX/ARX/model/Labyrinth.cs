@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ARX.model;
+using ARX.controller;
 
 namespace ARX.model
 {
@@ -41,7 +42,7 @@ namespace ARX.model
         public int PourcentEnnemi { get; set; }
         public int PourcentCoffre { get; set; }
         public int Difficulte { get; set; }
-        public List<List<bool>> MatriceAdjacence { get; set; } // Correction de la syntaxe ici
+        public List<List<bool>> MatriceAdjacence { get; set; }
         public bool Visibilite { get; set; }
         public List<Cellule> Cellules { get; set; }
 
@@ -84,7 +85,21 @@ namespace ARX.model
                         null
                     );
                     Cellules.Add(cellule);
+                    
                 }
+            }
+            var me = this;
+            if (type == "parfait")
+            {
+                Generateur.LabyrintheParfait(ref me, 0, 0);
+            }
+            else if (type == "imparfait")
+            {
+                Generateur.LabyrintheImparfait(ref me, 0, 0, 10);
+            }
+            else if (type == "plusqueparfait")
+            {
+                Generateur.LabyrinthePlusQueParfait(ref me, 0, 0);
             }
         }
     }

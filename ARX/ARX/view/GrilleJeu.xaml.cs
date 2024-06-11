@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -33,80 +34,69 @@ namespace ARX.view
 
             foreach (var cellule in labyrinthe.Cellules)
             {
+                Grid cellGrid = new Grid();
 
-                Console.WriteLine($"Cellule [{cellule.X}, {cellule.Y}]: NorthWall={cellule.NorthWall}, SouthWall={cellule.SouthWall}, EastWall={cellule.EastWall}, WestWall={cellule.WestWall}");
+                // Image cellImage = new Image();
+                // string imagePath = cellule.Fond;
+                // Uri imageUri = new Uri(imagePath, UriKind.Absolute);
+                // BitmapImage bitmap = new BitmapImage(imageUri);
+                // cellImage.Source = bitmap;
+                // cellImage.Stretch = Stretch.Fill;
 
-                Image cellImage = new Image();
-                string imagePath = cellule.Fond;
-                Uri imageUri = new Uri(imagePath, UriKind.Absolute);
-                BitmapImage bitmap = new BitmapImage(imageUri);
-                cellImage.Source = bitmap;
-                cellImage.Stretch = Stretch.Fill;
+                // cellGrid.Children.Add(cellImage);
 
-                Border cellBorder = new Border
-                {
-                    BorderThickness = new Thickness(0),
-                    Child = cellImage
-                };
+                AddWallsToCell(cellule, cellGrid);
 
-                CellGrid.Children.Add(cellBorder);
-                Grid.SetRow(cellBorder, cellule.Y);
-                Grid.SetColumn(cellBorder, cellule.X);
-
-                AddWallsToCell(cellule, cellBorder);
+                CellGrid.Children.Add(cellGrid);
+                Grid.SetRow(cellGrid, cellule.Y);
+                Grid.SetColumn(cellGrid, cellule.X);
             }
         }
 
-        private void AddWallsToCell(Cellule cellule, Border cellBorder)
+        private void AddWallsToCell(Cellule cellule, Grid cellGrid)
         {
+            // Affichage des murs en utilisant les images spécifiées dans la propriété Mur de chaque cellule
             if (cellule.NorthWall)
             {
-                Border northWall = new Border
-                {
-                    BorderBrush = Brushes.Black,
-                    BorderThickness = new Thickness(0, 1, 0, 0)
-                };
-                CellGrid.Children.Add(northWall);
-                Grid.SetRow(northWall, cellule.Y);
-                Grid.SetColumn(northWall, cellule.X);
+                AddWallImage(cellule.Mur, 0, cellGrid);
             }
 
             if (cellule.SouthWall)
             {
-                Border southWall = new Border
-                {
-                    BorderBrush = Brushes.Black,
-                    BorderThickness = new Thickness(0, 0, 0, 1)
-                };
-                CellGrid.Children.Add(southWall);
-                Grid.SetRow(southWall, cellule.Y + 1);
-                Grid.SetColumn(southWall, cellule.X);
+                AddWallImage(cellule.Mur, 180, cellGrid);
             }
 
             if (cellule.EastWall)
             {
-                Border eastWall = new Border
-                {
-                    BorderBrush = Brushes.Black,
-                    BorderThickness = new Thickness(0, 0, 1, 0)
-                };
-                CellGrid.Children.Add(eastWall);
-                Grid.SetRow(eastWall, cellule.Y);
-                Grid.SetColumn(eastWall, cellule.X + 1);
+                AddWallImage(cellule.Mur, 90, cellGrid);
             }
 
             if (cellule.WestWall)
             {
-                Border westWall = new Border
-                {
-                    BorderBrush = Brushes.Black,
-                    BorderThickness = new Thickness(1, 0, 0, 0)
-                };
-                CellGrid.Children.Add(westWall);
-                Grid.SetRow(westWall, cellule.Y);
-                Grid.SetColumn(westWall, cellule.X);
+                AddWallImage(cellule.Mur, -90, cellGrid);
             }
         }
+
+
+        private void AddWallImage(string imagePath, double angle, Grid cellGrid)
+        {
+            Image wallImage = new Image();
+            Uri imageUri = new Uri(imagePath, UriKind.Absolute);
+            BitmapImage bitmap = new BitmapImage(imageUri);
+            wallImage.Source = bitmap;
+            wallImage.Stretch = Stretch.Fill;
+
+            // Définir le point d'origine de la rotation au centre de l'image
+            wallImage.RenderTransformOrigin = new Point(0.5, 0.5);
+
+            // Appliquer la rotation
+            RotateTransform rotateTransform = new RotateTransform(angle);
+            wallImage.RenderTransform = rotateTransform;
+
+            cellGrid.Children.Add(wallImage); // Ajout de l'image directement au conteneur de la cellule (Grid)
+        }
+
+
 
 
         private void OptionsButton_Click(object sender, RoutedEventArgs e)
