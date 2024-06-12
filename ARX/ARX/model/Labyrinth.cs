@@ -18,6 +18,9 @@ namespace ARX.model
         public List<Loot> LootItems { get; set; }
         public Enemy EnemyInCell { get; set; }
 
+        public int Nombre { get; set; } // Ajout de la propriété Nombre
+
+
         public Cellule(int x, int y, string fond, string mur, bool northWall, bool southWall, bool eastWall, bool westWall, List<Loot> lootItems, Enemy enemyInCell)
         {
             X = x;
@@ -76,6 +79,8 @@ namespace ARX.model
                     string fond = $"pack://application:,,,/ARX;component/view/Images/fond{random.Next(1, nbfond + 1)}.png";
                     string mur = $"pack://application:,,,/ARX;component/view/Images/mur{random.Next(1, nbmurs + 1)}.png";
 
+                    // Ajout du nombre à chaque cellule
+                    int nombre = (x * taille) + y; // Calcul du nombre en fonction de la position dans la grille
                     var cellule = new Cellule(
                         x, y,
                         fond,
@@ -83,9 +88,11 @@ namespace ARX.model
                         true, true, true, true,
                         new List<Loot>(),
                         null
-                    );
+                    )
+                    {
+                        Nombre = nombre // Affectation du nombre à la cellule
+                    };
                     Cellules.Add(cellule);
-                    
                 }
             }
             var me = this;

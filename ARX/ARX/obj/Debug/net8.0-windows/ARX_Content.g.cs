@@ -15,5 +15,9 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/fond5.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/mur1.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/mur2.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/mure.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/murn.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/muro.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/murs.png")]
 
 

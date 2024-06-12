@@ -26,32 +26,45 @@ namespace ARX.view
             CellGrid.RowDefinitions.Clear();
             CellGrid.ColumnDefinitions.Clear();
 
+            // Calculate the total number of cells in the grid
+            int totalCells = size * size;
+
             for (int i = 0; i < size; i++)
             {
                 CellGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Star) });
                 CellGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
             }
 
-            foreach (var cellule in labyrinthe.Cellules)
+            // Iterate over the total number of cells
+            for (int i = 0; i < totalCells; i++)
             {
+                int row = i / size; // Calculate the row index
+                int column = i % size; // Calculate the column index
+
+                var cellule = labyrinthe.Cellules[i]; // Get the cell corresponding to the sequential order
+
                 Grid cellGrid = new Grid();
 
-                // Image cellImage = new Image();
-                // string imagePath = cellule.Fond;
-                // Uri imageUri = new Uri(imagePath, UriKind.Absolute);
-                // BitmapImage bitmap = new BitmapImage(imageUri);
-                // cellImage.Source = bitmap;
-                // cellImage.Stretch = Stretch.Fill;
-
-                // cellGrid.Children.Add(cellImage);
+                // Affichage du nombre en arrière-plan
+                TextBlock nombreText = new TextBlock()
+                {
+                    Text = cellule.Nombre.ToString(),
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center,
+                    Opacity = 0.5 // Opacité réduite pour que le texte soit visible mais ne masque pas les autres éléments
+                };
+                cellGrid.Children.Add(nombreText);
 
                 AddWallsToCell(cellule, cellGrid);
 
+                // Ensure the cell is placed at the correct X and Y coordinates
                 CellGrid.Children.Add(cellGrid);
-                Grid.SetRow(cellGrid, cellule.Y);
-                Grid.SetColumn(cellGrid, cellule.X);
+                Grid.SetRow(cellGrid, row);
+                Grid.SetColumn(cellGrid, column);
             }
         }
+
+
 
         private void AddWallsToCell(Cellule cellule, Grid cellGrid)
         {

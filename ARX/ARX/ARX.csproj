@@ -16,6 +16,10 @@
     <None Remove="view\Images\fond5.png" />
     <None Remove="view\Images\mur1.png" />
     <None Remove="view\Images\mur2.png" />
+    <None Remove="view\Images\mure.png" />
+    <None Remove="view\Images\murn.png" />
+    <None Remove="view\Images\muro.png" />
+    <None Remove="view\Images\murs.png" />
     <None Remove="view\Images\test1.png" />
     <None Remove="view\Images\test2.png" />
     <None Remove="view\Images\test3.png" />
@@ -43,6 +47,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="view\Images\mur2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\mure.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\murn.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\muro.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\murs.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
