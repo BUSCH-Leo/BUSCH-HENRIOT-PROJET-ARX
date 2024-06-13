@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using ARX.model;
 using ARX.controller;
+using System.Formats.Asn1;
+using System.IO;
 
 namespace ARX.model
 {
@@ -16,13 +18,12 @@ namespace ARX.model
         public bool SouthWall { get; set; }
         public bool EastWall { get; set; }
         public bool WestWall { get; set; }
-        public List<Loot> LootItems { get; set; }
+        public List<Loot> ListeLoot { get; set; }
         public Enemy EnemyInCell { get; set; }
-        public int Nombre { get; set; }
         public bool Joueur { get; set; }
         public double JoueurOrientation { get; set; }
 
-        public Cellule(int x, int y, string fond, string mur, string joueur_top, bool northWall, bool southWall, bool eastWall, bool westWall, List<Loot> lootItems, Enemy enemyInCell, bool joueur)
+        public Cellule(int x, int y, string fond, string mur, string joueur_top, bool northWall, bool southWall, bool eastWall, bool westWall, List<Loot> listeLoot, Enemy enemyInCell, bool joueur)
         {
             X = x;
             Y = y;
@@ -33,7 +34,7 @@ namespace ARX.model
             SouthWall = southWall;
             EastWall = eastWall;
             WestWall = westWall;
-            LootItems = lootItems;
+            ListeLoot = listeLoot;
             EnemyInCell = enemyInCell;
             Joueur = joueur;
             JoueurOrientation = 0;
@@ -85,9 +86,7 @@ namespace ARX.model
                     string mur = $"pack://application:,,,/ARX;component/view/Images/mur{random.Next(1, nbmurs + 1)}.png";
                     string joueur_top = $"pack://application:,,,/ARX;component/view/Images/joueur_top.png";
 
-                    // Ajout du nombre à chaque cellule
-                    int nombre = (x * taille) + y; // Calcul du nombre en fonction de la position dans la grille
-                    
+
                     var cellule = new Cellule(
                         x, y,
                         fond,
@@ -99,9 +98,19 @@ namespace ARX.model
                         false
                     )
                     {
-                        Nombre = nombre // Affectation du nombre à la cellule
                     };
-                    if (x == 0 && y == 0) {
+                    if (random.Next(0, 100) < PourcentCoffre * Difficulte)
+                    {
+                        cellule.ListeLoot.Add(GenererLoot());
+                    }
+
+                    if (random.Next(0, 100) < PourcentEnnemi * Difficulte)
+                    {
+                        cellule.EnemyInCell = GenererEnemy();
+                    }
+
+                    if (x == 0 && y == 0)
+                    {
                         cellule.Joueur = true;
                     }
                     Cellules.Add(cellule);
@@ -121,5 +130,88 @@ namespace ARX.model
                 Generateur.LabyrinthePlusQueParfait(ref me, 0, 0);
             }
         }
+
+        private Loot GenererLoot()
+        {
+            Loot loot = new Loot();
+            return loot;
+        }
+
+        private Enemy GenererEnemy()
+        {
+            // Liste de types d'ennemis possibles (à adapter selon votre jeu)
+            List<string> typesEnnemis = new List<string> { "Guerrier", "Mage", "Archer", "Boss" };
+
+            // Choix aléatoire d'un type d'ennemi
+            Random random = new Random();
+            string typeEnnemi = typesEnnemis[random.Next(typesEnnemis.Count)];
+
+            // Lecture du fichier CSV pour les noms aléatoires
+            Dictionary<string, NomsAleatoires> nomsAleatoiresParType = LireNomsAleatoiresDepuisCSV();
+
+            // Vérification si le type d'ennemi est présent dans les données lues
+            if (nomsAleatoiresParType.ContainsKey(typeEnnemi))
+            {
+                NomsAleatoires nomsAleatoires = nomsAleatoiresParType[typeEnnemi];
+                string nomAleatoire = GenererNomAleatoire(nomsAleatoires, random);
+
+                // Création de l'ennemi avec les attributs générés aléatoirement
+                return new Enemy
+                {
+                    Nom = nomAleatoire,
+                    Type = typeEnnemi,
+                    VieMax = random.Next(50, 101), // Exemple de génération de la vie maximale
+                    Vie = 100, // Exemple de valeur initiale de la vie
+                    // Autres attributs à initialiser selon votre jeu
+                };
+            }
+            else
+            {
+                // Si le type d'ennemi n'est pas trouvé dans les données du CSV, retourner un ennemi par défaut
+                return new Enemy
+                {
+                    Nom = "Ennemi Inconnu",
+                    Type = typeEnnemi,
+                    VieMax = 100,
+                    Vie = 100,
+                    // Autres attributs par défaut
+                };
+            }
+        }
+
+        private Dictionary<string, NomsAleatoires> LireNomsAleatoiresDepuisCSV()
+        {
+            Dictionary<string, NomsAleatoires> data = new Dictionary<string, NomsAleatoires>();
+
+            // Chemin vers votre fichier CSV contenant les noms aléatoires par type d'ennemi
+            string cheminFichierCSV = "chemin_vers_votre_fichier.csv";
+
+            // Lecture du fichier CSV et parsing des données
+            using (var reader = new StreamReader(cheminFichierCSV))
+            using (var csv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture))
+            {
+                // Lecture des données et stockage dans la structure appropriée
+                var records = csv.GetRecords<NomsAleatoires>();
+
+                foreach (var record in records)
+                {
+                    data.Add(record.TypeEnnemi, record);
+                }
+            }
+
+            return data;
+        }
+
+        private string GenererNomAleatoire(NomsAleatoires nomsAleatoires, Random random)
+        {
+            // Logique pour générer un nom aléatoire en utilisant les préfixes, infixes, suffixes et titre
+            string nomAleatoire = $"{nomsAleatoires.Prefixes[random.Next(nomsAleatoires.Prefixes.Count)]}" +
+                                  $"{nomsAleatoires.Infixes[random.Next(nomsAleatoires.Infixes.Count)]}" +
+                                  $"{nomsAleatoires.Suffixes[random.Next(nomsAleatoires.Suffixes.Count)]}" +
+                                  $" {nomsAleatoires.Titres[random.Next(nomsAleatoires.Titres.Count)]}";
+
+            return nomAleatoire;
+        }
     }
+}
 }
