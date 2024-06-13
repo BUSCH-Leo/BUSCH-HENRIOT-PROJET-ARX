@@ -53,7 +53,64 @@ C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8
 C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\ARX.pdb
 C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.genruntimeconfig.cache
 C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ref\ARX.dll
-C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\mure.png
-C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\murn.png
-C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\muro.png
-C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\murs.png
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\bin\Debug\net8.0-windows\ARX.exe
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\bin\Debug\net8.0-windows\view\Images\fond1.png
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\bin\Debug\net8.0-windows\view\Images\fond2.png
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\bin\Debug\net8.0-windows\view\Images\fond3.png
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\bin\Debug\net8.0-windows\view\Images\fond4.png
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\bin\Debug\net8.0-windows\view\Images\fond5.png
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\bin\Debug\net8.0-windows\view\Images\mur1.png
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\bin\Debug\net8.0-windows\view\Images\mur2.png
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\view\GrilleJeu.baml
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\view\GrilleJeu.g.cs
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\ARX_Content.g.cs
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\ARX_MarkupCompile.cache
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\ARX.g.resources
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\ARX.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\ARX.AssemblyInfoInputs.cache
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\ARX.AssemblyInfo.cs
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\ARX.csproj.CoreCompileInputs.cache
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\ARX.dll
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\refint\ARX.dll
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\ARX.pdb
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\bin\Debug\net8.0-windows\ARX.deps.json
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\bin\Debug\net8.0-windows\ARX.runtimeconfig.json
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\bin\Debug\net8.0-windows\ARX.dll
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\bin\Debug\net8.0-windows\ARX.pdb
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\ARX.genruntimeconfig.cache
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\obj\Debug\net8.0-windows\ref\ARX.dll
+C:\Users\06224\Documents\IUT\Semestre 2\Saé\Saé dev\BUSCH-HENRIOT-PROJET-ARX-main\ARX\ARX\bin\Debug\net8.0-windows\view\Images\joueur_top.png
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\bin\Debug\net8.0-windows\ARX.exe
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\bin\Debug\net8.0-windows\view\Images\fond1.png
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\bin\Debug\net8.0-windows\view\Images\fond2.png
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\bin\Debug\net8.0-windows\view\Images\fond3.png
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\bin\Debug\net8.0-windows\view\Images\fond4.png
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\bin\Debug\net8.0-windows\view\Images\fond5.png
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\bin\Debug\net8.0-windows\view\Images\mur1.png
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\bin\Debug\net8.0-windows\view\Images\mur2.png
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\bin\Debug\net8.0-windows\view\Images\joueur_top.png
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\bin\Debug\net8.0-windows\ARX.deps.json
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\bin\Debug\net8.0-windows\ARX.runtimeconfig.json
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\bin\Debug\net8.0-windows\ARX.dll
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\bin\Debug\net8.0-windows\ARX.pdb
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\view\GrilleJeu.baml
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\view\GrilleJeu.g.cs
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\ARX_Content.g.cs
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\ARX_MarkupCompile.cache
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\ARX.g.resources
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\ARX.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\ARX.AssemblyInfoInputs.cache
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\ARX.AssemblyInfo.cs
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\ARX.csproj.CoreCompileInputs.cache
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\ARX.dll
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\refint\ARX.dll
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\ARX.pdb
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\ARX.genruntimeconfig.cache
+C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\ref\ARX.dll
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\joueur_top.png

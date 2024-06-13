@@ -11,30 +11,35 @@ namespace ARX.model
         public int Y { get; set; }
         public string Fond { get; set; }
         public string Mur { get; set; }
+        public string Joueur_top { get; set; }
         public bool NorthWall { get; set; }
         public bool SouthWall { get; set; }
         public bool EastWall { get; set; }
         public bool WestWall { get; set; }
         public List<Loot> LootItems { get; set; }
         public Enemy EnemyInCell { get; set; }
+        public int Nombre { get; set; }
+        public bool Joueur { get; set; }
+        public double JoueurOrientation { get; set; }
 
-        public int Nombre { get; set; } // Ajout de la propriété Nombre
-
-
-        public Cellule(int x, int y, string fond, string mur, bool northWall, bool southWall, bool eastWall, bool westWall, List<Loot> lootItems, Enemy enemyInCell)
+        public Cellule(int x, int y, string fond, string mur, string joueur_top, bool northWall, bool southWall, bool eastWall, bool westWall, List<Loot> lootItems, Enemy enemyInCell, bool joueur)
         {
             X = x;
             Y = y;
             Fond = fond;
             Mur = mur;
+            Joueur_top = joueur_top;
             NorthWall = northWall;
             SouthWall = southWall;
             EastWall = eastWall;
             WestWall = westWall;
             LootItems = lootItems;
             EnemyInCell = enemyInCell;
+            Joueur = joueur;
+            JoueurOrientation = 0;
         }
     }
+
 
     public class Labyrinthe
     {
@@ -78,20 +83,27 @@ namespace ARX.model
                 {
                     string fond = $"pack://application:,,,/ARX;component/view/Images/fond{random.Next(1, nbfond + 1)}.png";
                     string mur = $"pack://application:,,,/ARX;component/view/Images/mur{random.Next(1, nbmurs + 1)}.png";
+                    string joueur_top = $"pack://application:,,,/ARX;component/view/Images/joueur_top.png";
 
                     // Ajout du nombre à chaque cellule
                     int nombre = (x * taille) + y; // Calcul du nombre en fonction de la position dans la grille
+                    
                     var cellule = new Cellule(
                         x, y,
                         fond,
                         mur,
+                        joueur_top,
                         true, true, true, true,
                         new List<Loot>(),
-                        null
+                        null,
+                        false
                     )
                     {
                         Nombre = nombre // Affectation du nombre à la cellule
                     };
+                    if (x == 0 && y == 0) {
+                        cellule.Joueur = true;
+                    }
                     Cellules.Add(cellule);
                 }
             }

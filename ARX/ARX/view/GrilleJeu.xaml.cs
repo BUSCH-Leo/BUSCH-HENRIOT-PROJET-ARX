@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using ARX.model;
@@ -18,7 +19,82 @@ namespace ARX.view
             labyActuel = new Labyrinthe();
             labyActuel.Initialize(10, "imparfait", 1, 10, 50, 50, 1, false);
             GenerateGrid(labyActuel);
+            this.KeyDown += new KeyEventHandler(OnButtonKeyDown);
+            this.Focusable = true;
+            this.Focus();
         }
+
+        private void OnButtonKeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Z:
+                case Key.Up:
+                    MovePlayer(-1, 0); // Move up
+                    break;
+                case Key.Q:
+                case Key.Left:
+                    MovePlayer(0, -1); // Move left
+                    break;
+                case Key.S:
+                case Key.Down:
+                    MovePlayer(1, 0); // Move down
+                    break;
+                case Key.D:
+                case Key.Right:
+                    MovePlayer(0, 1); // Move right
+                    break;
+            }
+        }
+
+        private void MovePlayer(int dx, int dy)
+        {
+            // Trouver la position actuelle du joueur
+            var currentCell = labyActuel.Cellules.Find(c => c.Joueur);
+            if (currentCell == null)
+                return;
+
+            int newX = currentCell.X + dx;
+            int newY = currentCell.Y + dy;
+
+            // Vérifier si la nouvelle position est valide
+            if (newX >= 0 && newX < labyActuel.Taille && newY >= 0 && newY < labyActuel.Taille)
+            {
+                var newCell = labyActuel.Cellules.Find(c => c.X == newX && c.Y == newY);
+                if (newCell != null && CanMoveTo(currentCell, newCell, dx, dy))
+                {
+                    // Mettre à jour l'orientation
+                    if (dx == 1) currentCell.JoueurOrientation = 180; // Sud
+                    else if (dx == -1) currentCell.JoueurOrientation = 0; // Nord
+                    else if (dy == 1) currentCell.JoueurOrientation = 90; // Est
+                    else if (dy == -1) currentCell.JoueurOrientation = -90; // Ouest
+
+                    currentCell.Joueur = false;
+                    newCell.Joueur = true;
+                    newCell.JoueurOrientation = currentCell.JoueurOrientation;
+                    RefreshGrid();
+                }
+            }
+        }
+
+
+        private bool CanMoveTo(Cellule currentCell, Cellule newCell, int dx, int dy)
+        {
+            // Vérifier les murs
+            if (dy == 1 && currentCell.EastWall) return false;
+            if (dy == -1 && currentCell.WestWall) return false;
+            if (dx == 1 && currentCell.SouthWall) return false;
+            if (dx == -1 && currentCell.NorthWall) return false;
+
+            return true;
+        }
+
+        private void RefreshGrid()
+        {
+            CellGrid.Children.Clear();
+            GenerateGrid(labyActuel);
+        }
+
 
         private void GenerateGrid(Labyrinthe labyrinthe)
         {
@@ -45,16 +121,36 @@ namespace ARX.view
 
                 Grid cellGrid = new Grid();
 
-                // Affichage du nombre en arrière-plan
-                TextBlock nombreText = new TextBlock()
-                {
-                    Text = cellule.Nombre.ToString(),
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center,
-                    Opacity = 0.5 // Opacité réduite pour que le texte soit visible mais ne masque pas les autres éléments
-                };
-                cellGrid.Children.Add(nombreText);
+                // Add base image of the cell
+                Image cellImage = new Image();
+                string imagePath = cellule.Fond;
+                Uri imageUri = new Uri(imagePath, UriKind.Absolute);
+                BitmapImage bitmap = new BitmapImage(imageUri);
+                cellImage.Source = bitmap;
+                cellImage.Stretch = Stretch.Fill;
+                cellGrid.Children.Add(cellImage);
 
+                // Add player image if player is present in the cell
+                if (cellule.Joueur)
+                {
+                    Image cellImageJoueur = new Image();
+                    string imagePathJoueur = cellule.Joueur_top;
+                    Uri imageUriJoueur = new Uri(imagePathJoueur, UriKind.Absolute);
+                    BitmapImage bitmapJoueur = new BitmapImage(imageUriJoueur);
+                    cellImageJoueur.Source = bitmapJoueur;
+                    cellImageJoueur.Stretch = Stretch.Fill;
+
+                    // Définir le point d'origine de la rotation au centre de l'image
+                    cellImageJoueur.RenderTransformOrigin = new Point(0.5, 0.5);
+
+                    // Appliquer la rotation
+                    RotateTransform rotateTransform = new RotateTransform(cellule.JoueurOrientation);
+                    cellImageJoueur.RenderTransform = rotateTransform;
+
+                    cellGrid.Children.Add(cellImageJoueur);
+                }
+
+                // Add walls to the cell
                 AddWallsToCell(cellule, cellGrid);
 
                 // Ensure the cell is placed at the correct X and Y coordinates
@@ -63,8 +159,6 @@ namespace ARX.view
                 Grid.SetColumn(cellGrid, column);
             }
         }
-
-
 
         private void AddWallsToCell(Cellule cellule, Grid cellGrid)
         {
@@ -90,7 +184,6 @@ namespace ARX.view
             }
         }
 
-
         private void AddWallImage(string imagePath, double angle, Grid cellGrid)
         {
             Image wallImage = new Image();
@@ -108,7 +201,6 @@ namespace ARX.view
 
             cellGrid.Children.Add(wallImage); // Ajout de l'image directement au conteneur de la cellule (Grid)
         }
-
 
 
 

@@ -114,9 +114,6 @@ namespace ARX.controller
             Trace.WriteLine($"Murs Cellule2: N:{laby.Cellules[cellule2].NorthWall}, S:{laby.Cellules[cellule2].SouthWall}, E:{laby.Cellules[cellule2].EastWall}, W:{laby.Cellules[cellule2].WestWall}");
         }
 
-
-
-
         public static int RandomProfondeur(ref Labyrinthe laby, ref List<bool> visite, int cellule)
         {
             visite[cellule] = true;
