@@ -47,31 +47,41 @@ namespace ARX.model
         public string Type { get; set; }
         public int VieMax { get; set; }
         public int Vie { get; set; }
+        public int degaMin { get; set; }
+        public int degaMax { get; set; }
+        public int probaTouch { get; set; }
         public Effets Effets { get; set; }
         public int Destination { get; set; }
         public string Action { get; set; }
         public List<Loot> stuff { get; set; }
 
-        public Enemy( string type, int difficulte)
+        public Enemy(, int difficulte)
         {
+            Random random = new Random();
             Type = type;
             string prefix = "";
             string infix = "";
             string suffix = "";
             string titre = "";
 
-            if (type == "Goblin"){
+            if (type == "Goblin")
+            {
                 Random rand = new Random();
                 prefix = randomgoblin.prefix[rand.Next(randomgoblin.prefix.Count)];
                 infix = randomgoblin.infixes[rand.Next(randomgoblin.infixes.Count)];
                 suffix = randomgoblin.suffixes[rand.Next(randomgoblin.suffixes.Count)];
                 titre = randomgoblin.titre[rand.Next(randomgoblin.titre.Count)];
+                string Nom = prefix + infix + suffix + titre;
+                VieMax = random.Next(15, 25) + difficulte / 4;
+                Vie = VieMax;
+                degaMin = random.Next(5, 15) + difficulte / 4;
+                stuff = Loot.GenererLoot(difficulte - 20,85,rand.Next(0,4));
+                stuff.argent=rand.Next(0,difficulte*2+12)
             }
-            string Nom = prefix + infix + suffix + titre;
-            VieMax = 20 + difficulte / 4;
-            Vie = VieMax;
-            stuff = genereloot(difficulte-20);
         }
+
+        public static List<string> listeEnemy = new List<string>
+        {"Goblin"};
     }
 
     public enum Effets
@@ -83,6 +93,8 @@ namespace ARX.model
 
     }
 
+    
+
     static class randomgoblin
     {
         public static List<string> prefix = new List<string> { "Grub", "Snag", "Gri", "Mol", "War", "Sni", "Sti", "Rot", "Gob", "Fil", "Bil", "Toa", "Gru", "Sno", "Glo", "Gna", "Wre", "Slu", "Fan", "Dir", "Mag", "Muc", "Net", "Bog" };
@@ -91,7 +103,7 @@ namespace ARX.model
 
         public static List<string> suffixes = new List<string> { "sh", "ck", "tt", "ne", "zz", "nt", "nd", "ze", "le", "rt", "ge", "de", "mp", "ke", "pp", "ff", "me", "ng", "ft", "mp", "rd", "ze", "ss", "nk", "re" };
 
-        public static List<string> titre = new List<string> { " le gobleur", " la malice", "le malicieu" };
+        public static List<string> titre = new List<string> { " le gobleur", " la malice", "le malicieu", "goblin depuis des générations", "le goblin", "le gabbagooblin", "le globin", "le gooblin", "le ginblo" };
     }
 
 

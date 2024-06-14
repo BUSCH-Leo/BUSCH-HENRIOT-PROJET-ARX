@@ -7,38 +7,45 @@ using System.Threading.Tasks;
 using System.Windows.Media.Effects;
 using System.Runtime.ConstrainedExecution;
 using System.Web;
+using System.Runtime.CompilerServices;
 
 namespace ARX.model
 {
     public class Loot
     {
-        public string LootType { get; set; }
+        public List<Armes> armes;
+        public List<Objets> objets;
+        public int argent;
 
         public Loot(string lootType, int difficulte, int valeur = 0)
         {
             LootType = lootType;
+
+            if lootType == "Argent"{
+
+            }
+            else if (lootType == "Arme"{
+                new Armes = Randarme(difficulte);
+            }
         }
 
-        public static List<Loot> GenererLoot(int difficulte, int pourcentObjets, int pourcentArme, int nbLoot, int multiplicateurArgent = 1)
+        public static List<Loot> GenererLoot(int difficulte, int pourcentObjetsSurArme, int nbLoot)
         {
             List<Loot> loots = new List<Loot>();
             Random random = new Random();
             if (difficulte < 0) { difficulte = 0; }
-
-            if (random.Next(0, pourcentObjets+pourcentArme) < pourcentObjets)
+            for (int i = 0; i < nbLoot; i++)
             {
-                loots.Add(new Loot("Objet", difficulte));
-            }
 
-            if (random.Next(0, pourcentObjets + pourcentArme) >= pourcentObjets)
-            {
-                loots.Add(new Loot("Arme", difficulte));
-            }
+                if (random.Next(0, 101) < pourcentObjetsSurArme)
+                {
+                    loots.Add(new Loot("Objet", difficulte));
+                }
 
-            int argent = random.Next(0,25+difficulte) * multiplicateurArgent;
-            for (int i = 0; i < argent; i++)
-            {
-                loots.Add(new Loot("Argent", difficulte, argent));
+                if (random.Next(0, 101) >= pourcentObjetsSurArme)
+                {
+                    loots.Add(new Loot("Arme", difficulte));
+                }
             }
 
             return loots;
@@ -149,7 +156,7 @@ namespace ARX.model
 
             if (level>=100 && random.Next(0,2)==1 || random.Next(level,101)==100 )
             {
-                enchant.Add(Armes.listEnchant[random.Next(Armes.listEnchant.Count)]);
+                enchant = Armes.listEnchant[random.Next(Armes.listEnchant.Count)];
                 nom += nomArme.enchant[random.Next(nomArme.enchant.Count)];
             }
             if (level >= 100 && random.Next(0, 2) == 1 || random.Next(level, 101) == 100)
