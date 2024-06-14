@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 
@@ -50,15 +52,25 @@ namespace ARX.model
         public string Action { get; set; }
         public List<Loot> stuff { get; set; }
 
-        public Enemy(string nom, string type, int vieMax, int vie, Effets effets, int destination, string action)
+        public Enemy( string type, int difficulte)
         {
-            Nom = nom;
             Type = type;
-            VieMax = vieMax;
-            Vie = vie;
-            Effets = effets;
-            Destination = destination;
-            Action = action;
+            string prefix = "";
+            string infix = "";
+            string suffix = "";
+            string titre = "";
+
+            if (type == "Goblin"){
+                Random rand = new Random();
+                prefix = randomgoblin.prefix[rand.Next(randomgoblin.prefix.Count)];
+                infix = randomgoblin.infixes[rand.Next(randomgoblin.infixes.Count)];
+                suffix = randomgoblin.suffixes[rand.Next(randomgoblin.suffixes.Count)];
+                titre = randomgoblin.titre[rand.Next(randomgoblin.titre.Count)];
+            }
+            string Nom = prefix + infix + suffix + titre;
+            VieMax = 20 + difficulte / 4;
+            Vie = VieMax;
+            stuff = genereloot(difficulte-20);
         }
     }
 
@@ -78,8 +90,8 @@ namespace ARX.model
         public static List<string> infixes = new List<string> { "na", "kle", "toe", "ter", "ba", "der", "knu", "gle", "bli", "do", "mna", "kel", "to", "ku", "ho", "ne", "ma", "ge", "ru", "lu", "ki", "la", "mo", "wa", "pa", "tu", "fe", "da", "no", "fa", "go", "pu", "fi", "ja" };
 
         public static List<string> suffixes = new List<string> { "sh", "ck", "tt", "ne", "zz", "nt", "nd", "ze", "le", "rt", "ge", "de", "mp", "ke", "pp", "ff", "me", "ng", "ft", "mp", "rd", "ze", "ss", "nk", "re" };
-        
 
+        public static List<string> titre = new List<string> { " le gobleur", " la malice", "le malicieu" };
     }
 
 

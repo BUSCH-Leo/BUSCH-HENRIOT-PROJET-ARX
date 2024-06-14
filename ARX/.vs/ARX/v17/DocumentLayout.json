@@ -3,32 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\model\\personnage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\model\\personnage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\model\\labyrinth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\model\\labyrinth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\model\\jeu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\model\\jeu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\model\\loot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\model\\loot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\model\\personnage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\model\\personnage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\controller\\generateur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\controller\\generateur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\view\\grillejeu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\view\\grillejeu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\view\\grillejeu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\view\\grillejeu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\model\\jeu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\model\\jeu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,6 +25,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\model\\labyrinth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\model\\labyrinth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\view\\grillejeu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\view\\grillejeu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\view\\grillejeu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\view\\grillejeu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,113 +46,109 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Loot.cs",
               "DocumentMoniker": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\model\\Loot.cs",
               "RelativeDocumentMoniker": "ARX\\model\\Loot.cs",
               "ToolTip": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\model\\Loot.cs",
               "RelativeToolTip": "ARX\\model\\Loot.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAiAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-13T07:06:40.777Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Jeu.cs",
               "DocumentMoniker": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\model\\Jeu.cs",
               "RelativeDocumentMoniker": "ARX\\model\\Jeu.cs",
               "ToolTip": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\model\\Jeu.cs",
               "RelativeToolTip": "ARX\\model\\Jeu.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAMAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAA3wBoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-13T07:05:11.981Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Personnage.cs",
               "DocumentMoniker": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\model\\Personnage.cs",
               "RelativeDocumentMoniker": "ARX\\model\\Personnage.cs",
               "ToolTip": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\model\\Personnage.cs",
               "RelativeToolTip": "ARX\\model\\Personnage.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAiwFEAAAAAAAAA",
+              "ViewState": "AQIAACcAAAAAAAAAAADwv0cAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-13T07:04:46.077Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Generateur.cs",
               "DocumentMoniker": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\controller\\Generateur.cs",
               "RelativeDocumentMoniker": "ARX\\controller\\Generateur.cs",
               "ToolTip": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\controller\\Generateur.cs",
               "RelativeToolTip": "ARX\\controller\\Generateur.cs",
-              "ViewState": "AQIAAIIAAAAAAAAAAAAgwLYAAAABAAAA",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAYwG8AAABPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-12T15:35:49.948Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Labyrinth.cs",
               "DocumentMoniker": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\model\\Labyrinth.cs",
               "RelativeDocumentMoniker": "ARX\\model\\Labyrinth.cs",
               "ToolTip": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\model\\Labyrinth.cs",
               "RelativeToolTip": "ARX\\model\\Labyrinth.cs",
-              "ViewState": "AQIAAJoAAAAAAAAAAAAcwIcAAAAcAAAA",
+              "ViewState": "AQIAAL4AAAAAAAAAAAAQwLUAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-12T15:04:03.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-12T15:04:03.4Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "GrilleJeu.xaml.cs",
               "DocumentMoniker": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\view\\GrilleJeu.xaml.cs",
               "RelativeDocumentMoniker": "ARX\\view\\GrilleJeu.xaml.cs",
               "ToolTip": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\view\\GrilleJeu.xaml.cs",
               "RelativeToolTip": "ARX\\view\\GrilleJeu.xaml.cs",
-              "ViewState": "AQIAAK4AAAAAAAAAAAAAwLIAAAANAAAA",
+              "ViewState": "AQIAAKgAAAAAAAAAAAAAwNsAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T07:44:23.986Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-29T07:44:23.986Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "GrilleJeu.xaml",
               "DocumentMoniker": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\view\\GrilleJeu.xaml",
               "RelativeDocumentMoniker": "ARX\\view\\GrilleJeu.xaml",
               "ToolTip": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\view\\GrilleJeu.xaml",
               "RelativeToolTip": "ARX\\view\\GrilleJeu.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-29T07:44:06.918Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-29T07:44:06.918Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\MainWindow.xaml",
               "RelativeDocumentMoniker": "ARX\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\MainWindow.xaml",
               "RelativeToolTip": "ARX\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-29T07:42:38.317Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-29T07:42:38.317Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "ARX\\MainWindow.xaml.cs",
@@ -160,8 +156,7 @@
               "RelativeToolTip": "ARX\\MainWindow.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T07:42:36.057Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-29T07:42:36.057Z"
             }
           ]
         }
