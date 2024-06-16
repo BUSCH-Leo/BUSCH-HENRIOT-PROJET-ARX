@@ -24,6 +24,9 @@ namespace ARX.model
         public double JoueurOrientation { get; set; }
         public int Multiargent { get; set; }
         public int Multiloot { get; set; }
+        public bool IsVisible { get; set; }
+        public bool IsExplored { get; set; }
+
 
 
         public Cellule(int x, int y, string fond, string mur, string joueur_top, bool northWall, bool southWall, bool eastWall, bool westWall, Loot stuff, Enemy enemyInCell, bool joueur, int multiargent, int multiloot)
@@ -43,6 +46,8 @@ namespace ARX.model
             JoueurOrientation = 0;
             Multiargent = multiargent;
             Multiloot = multiloot;
+            IsVisible = false;
+            IsExplored = false;
         }
         public Loot GenererLoot()
         {

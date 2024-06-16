@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -149,10 +150,33 @@ namespace ARX.view
 
                     cellGrid.Children.Add(cellImageJoueur);
                 }
+                if (cellule.EnemyInCell != null)
+                {
+                    Enemy enemy = cellule.EnemyInCell;
+                    Image enemyImage = new Image();
+
+                    // Générer le chemin d'accès aux images en fonction de l'index de l'ennemi
+                    string enemyImagePath = $"pack://application:,,,/ARX;component/view/Images/enemy/{enemy.Type}{enemy.IndexImage}top.png";
+
+                    // Utiliser l'image top pour l'ennemi
+                    Uri enemyImageUri = new Uri(enemyImagePath, UriKind.Absolute);
+                    BitmapImage enemybitmap = new BitmapImage(enemyImageUri);
+                    enemyImage.Source = enemybitmap;
+
+                    // Taille de la cellule (supposant que chaque cellule a la même taille)
+                    double cellSize = CellGrid.ActualWidth / labyActuel.Taille; // Supposant une grille carrée
+
+                    // Définir la taille de l'image de l'ennemi
+                    enemyImage.Width = cellSize * 0.5; // Ajuster la taille selon vos besoins
+                    enemyImage.Height = cellSize * 0.5; // Ajuster la taille selon vos besoins
+                    enemyImage.Stretch = Stretch.Uniform;
+
+                    // Ajouter l'image de l'ennemi à la grille
+                    cellGrid.Children.Add(enemyImage);
+                }
 
                 // Add walls to the cell
                 AddWallsToCell(cellule, cellGrid);
-                AddEnemyImage(cellule, cellGrid);
 
                 // Ensure the cell is placed at the correct X and Y coordinates
                 CellGrid.Children.Add(cellGrid);
@@ -160,30 +184,7 @@ namespace ARX.view
                 Grid.SetColumn(cellGrid, column);
             }
         }
-        private void AddEnemyImage(Cellule cellule, Grid cellGrid)
-        {
-            if (cellule.EnemyInCell != null)
-            {
-                Enemy enemy = cellule.EnemyInCell;
-                Image enemyImage = new Image();
 
-                // Generate the path to the enemy image based on the enemy's type and index
-                string imagePathTop = $"pack://application:,,,/ARX;component/view/Images/enemy/{enemy.Type}{enemy.IndexImage}top.png";
-
-                // Use the top image for the enemy
-                Uri imageUri = new Uri(imagePathTop, UriKind.Absolute);
-                BitmapImage bitmap = new BitmapImage(imageUri);
-                enemyImage.Source = bitmap;
-
-                // Set image properties
-                enemyImage.Stretch = Stretch.Uniform; // Maintain aspect ratio
-                enemyImage.Width = 30; // Adjust width as needed
-                enemyImage.Height = 30; // Adjust height as needed
-
-                // Add the enemy image to the grid
-                cellGrid.Children.Add(enemyImage);
-            }
-        }
 
 
 
