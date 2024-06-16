@@ -7,6 +7,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media.Effects;
 
@@ -57,8 +58,12 @@ namespace ARX.model
         public int Destination { get; set; }
         public string Action { get; set; }
         public Loot Stuff { get; set; }
+        public int IndexImage { get; set;}
 
-        public Enemy(string nom, string type, int viemax, int degamin, int degamax, int probatouch, Loot stuff, List<Effet> effets = null)
+        public static int nbimagegobl { get; } = 1;
+
+
+        public Enemy(string nom, string type, int viemax, int degamin, int degamax, int probatouch, Loot stuff,int indeximage, List<Effet> effets = null)
         {
             Nom = nom;
             Type = type;
@@ -69,6 +74,7 @@ namespace ARX.model
             probaTouch = probatouch;
             Effets = effets;
             Stuff = stuff;
+            IndexImage = indeximage;
         }
         public static Enemy GenererEnemy(int difficulte, string type = "random")
         {
@@ -92,8 +98,9 @@ namespace ARX.model
                 Loot stuff = new Loot();
                 stuff.GenererLoot(difficulte - 20, 85, rand.Next(0, 4));
                 stuff.Argent = rand.Next(0, difficulte * 2 + 12);
+                int indeximage = rand.Next(0,nbimagegobl+1);
 
-                return new Enemy(Nom, type, VieMax, degaMin, degaMax, probaTouch, stuff);
+                return new Enemy(Nom, type, VieMax, degaMin, degaMax, probaTouch, stuff, indeximage);
             }
             else
             {
@@ -137,7 +144,7 @@ namespace ARX.model
 
         public static List<string> suffixes = new List<string> { "sh", "ck", "tt", "ne", "zz", "nt", "nd", "ze", "le", "rt", "ge", "de", "mp", "ke", "pp", "ff", "me", "ng", "ft", "mp", "rd", "ze", "ss", "nk", "re" };
 
-        public static List<string> titre = new List<string> { " le gobleur", " la malice", "le malicieu", "goblin depuis des générations", "le goblin", "le gabbagooblin", "le globin", "le gooblin", "le ginblo" };
+        public static List<string> titre = new List<string> { " le gobleur", " la malice", "le malicieu", " goblin depuis des générations", " le goblin", " le gabbagooblin", " le globin", " le gooblin", " le ginblo" };
     }
 
 
