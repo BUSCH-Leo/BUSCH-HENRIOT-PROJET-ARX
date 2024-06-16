@@ -26,7 +26,7 @@ namespace ARX.model
         public int Multiloot { get; set; }
 
 
-        public Cellule(int x, int y, string fond, string mur, string joueur_top, bool northWall, bool southWall, bool eastWall, bool westWall, List<Loot> listeLoot, Enemy enemyInCell, bool joueur, int multiargent, int multiloot)
+        public Cellule(int x, int y, string fond, string mur, string joueur_top, bool northWall, bool southWall, bool eastWall, bool westWall, Loot stuff, Enemy enemyInCell, bool joueur, int multiargent, int multiloot)
         {
             X = x;
             Y = y;
@@ -37,12 +37,18 @@ namespace ARX.model
             SouthWall = southWall;
             EastWall = eastWall;
             WestWall = westWall;
-            ListeLoot = listeLoot;
+            loot = stuff;
             EnemyInCell = enemyInCell;
             Joueur = joueur;
             JoueurOrientation = 0;
             Multiargent = multiargent;
             Multiloot = multiloot;
+        }
+        public Loot GenererLoot()
+        {
+            Loot loot = new Loot();
+
+            return loot;
         }
     }
 
@@ -59,8 +65,10 @@ namespace ARX.model
         public List<List<bool>> MatriceAdjacence { get; set; }
         public bool Visibilite { get; set; }
         public List<Cellule> Cellules { get; set; }
+        public int Multiargent { get; set; }
+        public int Multiloot { get; set; }
 
-        public void Initialize(int taille, string type, int profondeur, int quotaSpawn, int pourcentEnnemi, int pourcentCoffre, int difficulte, bool visibilite)
+        public void Initialize(int taille, string type, int profondeur, int quotaSpawn, int pourcentEnnemi, int pourcentCoffre, int difficulte, bool visibilite, int multiargent, int multiloot)
         {
             Taille = taille;
             Type = type;
@@ -71,6 +79,8 @@ namespace ARX.model
             Difficulte = difficulte;
             Visibilite = visibilite;
             Cellules = new List<Cellule>();
+            Multiargent = multiargent;
+            Multiloot = multiloot;
 
             MatriceAdjacence = new List<List<bool>>();
             for (int i = 0; i < taille * taille; i++)
@@ -98,20 +108,22 @@ namespace ARX.model
                         mur,
                         joueur_top,
                         true, true, true, true,
-                        new List<Loot>(),
+                        new Loot(),
                         null,
-                        false
+                        false,
+                        multiargent,
+                        multiloot
                     )
                     {
                     };
-                    if (random.Next(0, 100) < PourcentCoffre * Difficulte)
+                    if (random.Next(0, 100) < PourcentCoffre)
                     {
-                        cellule.Loot.GenererLoot(difficulte,75,random.Next(0,11));
+                        cellule.loot = Cellule.GenererLoot(difficulte,75,random.Next(0,11));
                     }
 
-                    if (random.Next(0, 100) < PourcentEnnemi * Difficulte)
+                    if (random.Next(0, 100) < PourcentEnnemi)
                     {
-                        cellule.EnemyInCell = Enemy.GenererEnemy(int difficulte);
+                        cellule.EnemyInCell = Enemy.GenererEnemy(difficulte);
                     }
 
                     if (x == 0 && y == 0)
@@ -134,12 +146,6 @@ namespace ARX.model
             {
                 Generateur.LabyrinthePlusQueParfait(ref me, 0, 0);
             }
-        }
-
-        private Loot GenererLoot()
-        {
-            Loot loot = new Loot();
-            return loot;
         }
 
     }
