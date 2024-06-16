@@ -25,7 +25,7 @@ namespace ARX.model
             Argent += autreloot.Argent;
         }
 
-        public void GenererLoot(int difficulte, int pourcentObjetsSurArme, int nbLoot)
+        public void GenererLoot(int difficulte, int pourcentObjetsSurArme=80, int nbLoot= 1)
         {
             Random random = new Random();
 
@@ -62,7 +62,6 @@ namespace ARX.model
             Random random = new Random();
             string type = "TypeAléatoire"; // Remplacer par la logique de génération du type
             int value = random.Next(1, 101); // Exemple de génération de valeur aléatoire
-
             return new Objet(type, value);
         }
     }

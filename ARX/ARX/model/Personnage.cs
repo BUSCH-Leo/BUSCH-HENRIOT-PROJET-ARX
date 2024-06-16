@@ -1,11 +1,14 @@
 ﻿using ARX.model;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Documents;
+using System.Windows.Media.Effects;
 
 
 namespace ARX.model
@@ -15,17 +18,17 @@ namespace ARX.model
     {
         public string Nom { get; set; }
         public string Classe { get; set; }
-        public Armes Armes { get; set; }
+        public Arme Armes { get; set; }
         public int VieMax { get; set; }
         public int Vie { get; set; }
         public int Force { get; set; }
         public int Dexterite { get; set; }
-        public Effets Effets { get; set; }
+        public List<Effet> Effets { get; set; }
         public string TopSprite { get; set; }
         public string FrontSprite { get; set; }
         public int Money { get; set; }
 
-        public Personnage(string nom, string classe, Armes armes, int vieMax, int vie, int force, int dexterite, Effets effets, string topSprite, string frontSprite, int money)
+        public Personnage(string nom, string classe, Arme armes, int vieMax, int vie, int force, int dexterite, string topSprite, string frontSprite, int money, List<Effet> effets = null)
         {
             Nom = nom;
             Classe = classe;
@@ -50,41 +53,60 @@ namespace ARX.model
         public int degaMin { get; set; }
         public int degaMax { get; set; }
         public int probaTouch { get; set; }
-        public Effets Effets { get; set; }
+        public List<Effet> Effets { get; set; }
         public int Destination { get; set; }
         public string Action { get; set; }
-        public List<Loot> stuff { get; set; }
+        public Loot Stuff { get; set; }
 
-        public Enemy(, int difficulte)
+        public Enemy(string nom, string type, int viemax, int degamin, int degamax, int probatouch, Loot stuff, List<Effet> effets = null)
         {
-            Random random = new Random();
+            Nom = nom;
             Type = type;
-            string prefix = "";
-            string infix = "";
-            string suffix = "";
-            string titre = "";
-
+            VieMax = viemax;
+            Vie = viemax;
+            degaMin = degamin;
+            degaMax = degamax;
+            probaTouch = probatouch;
+            Effets = effets;
+            Stuff = stuff;
+        }
+        public static Enemy GenererEnemy(int difficulte, string type = "random")
+        {
+            Random rand = new Random();
+            if (!listeEnemy.Contains(type))
+            {
+                type = listeEnemy[rand.Next(listeEnemy.Count)];
+            }
             if (type == "Goblin")
             {
-                Random rand = new Random();
-                prefix = randomgoblin.prefix[rand.Next(randomgoblin.prefix.Count)];
-                infix = randomgoblin.infixes[rand.Next(randomgoblin.infixes.Count)];
-                suffix = randomgoblin.suffixes[rand.Next(randomgoblin.suffixes.Count)];
-                titre = randomgoblin.titre[rand.Next(randomgoblin.titre.Count)];
+                string prefix = randomgoblin.prefix[rand.Next(randomgoblin.prefix.Count)];
+                string infix = randomgoblin.infixes[rand.Next(randomgoblin.infixes.Count)];
+                string suffix = randomgoblin.suffixes[rand.Next(randomgoblin.suffixes.Count)];
+                string titre = randomgoblin.titre[rand.Next(randomgoblin.titre.Count)];
                 string Nom = prefix + infix + suffix + titre;
-                VieMax = random.Next(15, 25) + difficulte / 4;
-                Vie = VieMax;
-                degaMin = random.Next(5, 15) + difficulte / 4;
-                stuff = Loot.GenererLoot(difficulte - 20,85,rand.Next(0,4));
-                stuff.argent=rand.Next(0,difficulte*2+12)
+                int VieMax = rand.Next(15, 25) + difficulte / 4;
+                int Vie = VieMax;
+                int degaMin = rand.Next(5, 7) + difficulte / 4;
+                int degaMax = rand.Next(degaMin, 20) + difficulte / 4;
+                int probaTouch = (int)Math.Round(25 + 25 * (1 - Math.Exp(-0.02 * difficulte)));
+                Loot stuff = new Loot();
+                stuff.GenererLoot(difficulte - 20, 85, rand.Next(0, 4));
+                stuff.Argent = rand.Next(0, difficulte * 2 + 12);
+
+                return new Enemy(Nom, type, VieMax, degaMin, degaMax, probaTouch, stuff);
+            }
+            else
+            {
+                throw new Exception($"Type d'ennemi inconnu : {type}");
             }
         }
+
 
         public static List<string> listeEnemy = new List<string>
         {"Goblin"};
     }
 
-    public enum Effets
+    public enum ListEffets
     {
         Poison,
         Flamme,
@@ -92,8 +114,20 @@ namespace ARX.model
         Faiblesse,
 
     }
+    public class Effet
+    {
+        public string Type { get; set; }
+        public int Impacte { get; set; }
+        public int Temps { get; set; }
 
-    
+        public Effet(string type, int impacte, int temps)
+        {
+            Type = type;
+            Impacte = impacte;
+            Temps = temps;
+        }
+    }
+
 
     static class randomgoblin
     {

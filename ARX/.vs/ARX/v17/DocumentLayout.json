@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\model\\loot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\model\\loot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\model\\personnage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\model\\personnage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\model\\labyrinth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\model\\labyrinth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\model\\personnage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\model\\personnage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\model\\loot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|solutionrelative:arx\\model\\loot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3023EFDC-C2FA-4B2F-B253-99B8C13E340C}|ARX\\ARX.csproj|c:\\users\\tyyyty\\documents\\github\\busch-henriot-projet-arx\\arx\\arx\\controller\\generateur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,17 +46,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Loot.cs",
               "DocumentMoniker": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\model\\Loot.cs",
               "RelativeDocumentMoniker": "ARX\\model\\Loot.cs",
               "ToolTip": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\model\\Loot.cs",
               "RelativeToolTip": "ARX\\model\\Loot.cs",
-              "ViewState": "AQIAADUAAAAAAAAAAAAUwEEAAAAqAAAA",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAYwJYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-13T07:06:40.777Z",
               "EditorCaption": ""
@@ -75,15 +75,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Personnage.cs",
               "DocumentMoniker": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\model\\Personnage.cs",
               "RelativeDocumentMoniker": "ARX\\model\\Personnage.cs",
               "ToolTip": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\model\\Personnage.cs",
               "RelativeToolTip": "ARX\\model\\Personnage.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAAE4AAAA5AAAA",
+              "ViewState": "AQIAAD0AAAAAAAAAAADwv4AAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T07:04:46.077Z"
+              "WhenOpened": "2024-06-13T07:04:46.077Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -105,9 +106,10 @@
               "RelativeDocumentMoniker": "ARX\\model\\Labyrinth.cs",
               "ToolTip": "C:\\Users\\tyyyty\\Documents\\GitHub\\BUSCH-HENRIOT-PROJET-ARX\\ARX\\ARX\\model\\Labyrinth.cs",
               "RelativeToolTip": "ARX\\model\\Labyrinth.cs",
-              "ViewState": "AQIAAGAAAAAAAAAAAAAQwHEAAAAkAAAA",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAQwIEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-12T15:04:03.4Z"
+              "WhenOpened": "2024-06-12T15:04:03.4Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

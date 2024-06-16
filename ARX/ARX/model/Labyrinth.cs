@@ -114,17 +114,20 @@ namespace ARX.model
                         multiargent,
                         multiloot
                     )
-                    {
-                    };
+                    { };
+                    
                     if (random.Next(0, 100) < PourcentCoffre)
                     {
-                        cellule.loot = Cellule.GenererLoot(difficulte,75,random.Next(0,11));
+                        var loot = new Loot();
+                        loot.GenererLoot(difficulte, 75, random.Next(0, 11));
+                        cellule.loot = loot;
                     }
 
                     if (random.Next(0, 100) < PourcentEnnemi)
                     {
-                        cellule.EnemyInCell = Enemy.GenererEnemy(difficulte);
+                        cellule.EnemyInCell = Enemy.GenererEnemy(Difficulte);
                     }
+
 
                     if (x == 0 && y == 0)
                     {
