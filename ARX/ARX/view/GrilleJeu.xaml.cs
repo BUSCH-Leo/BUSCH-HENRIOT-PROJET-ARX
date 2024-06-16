@@ -6,6 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using ARX.model;
+using System.IO;
 
 namespace ARX.view
 {
@@ -231,9 +232,31 @@ namespace ARX.view
 
 
 
-        private void OptionsButton_Click(object sender, RoutedEventArgs e)
+        private void QuitterButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Options :\n1. Sauvegarder\n2. Quitter", "Options", MessageBoxButton.OK);
+            Application.Current.Shutdown();
+        }
+
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog
+            {
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads",
+                FileName = "GameSave",
+                DefaultExt = ".arxsave",
+                Filter = "Fichiers ARXSAVE (*.arxsave)|*.arxsave"
+            };
+
+            bool? result = saveFileDialog.ShowDialog();
+
+            if (result == true)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                await Task.Run(() => File.WriteAllText(filePath, "Game saved here"));
+
+                MessageBox.Show($"Fichier enregistré : {filePath}");
+            }
         }
     }
 }
