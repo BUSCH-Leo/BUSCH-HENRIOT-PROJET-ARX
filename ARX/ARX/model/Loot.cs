@@ -5,13 +5,13 @@ namespace ARX.model
 {
     public class Loot
     {
-        public List<Armes> Armes { get; set; }
+        public List<Arme> Armes { get; set; }
         public List<Objet> Objets { get; set; }
         public int Argent { get; set; }
 
         public Loot()
         {
-            Armes = new List<Armes>();
+            Armes = new List<Arme>();
             Objets = new List<Objet>();
             Argent = 0;
         }
@@ -39,8 +39,7 @@ namespace ARX.model
                 }
                 else
                 {
-                    Armes arme = Armes.Randarme(difficulte, "random");
-                    Armes.Add(arme);
+                    Armes.Add(Arme.Randarme(difficulte));
                 }
             }
         }
@@ -68,7 +67,7 @@ namespace ARX.model
         }
     }
 
-    public class Armes
+    public class Arme
     {
         public string Type { get; set; }
         public string Nom { get; set; }
@@ -80,7 +79,7 @@ namespace ARX.model
         public int Multicritique { get; set; }
         public string Enchant { get; set; }
 
-        public Armes(string type, string nom, int level, int degatsMin, int degatsMax, int probabilite, int probaCritique, int multicritique, string enchant)
+        public Arme(string type, string nom, int level, int degatsMin, int degatsMax, int probabilite, int probaCritique, int multicritique, string enchant)
         {
             Type = type;
             Nom = nom;
@@ -93,7 +92,7 @@ namespace ARX.model
             Enchant = enchant;
         }
 
-        public static Armes Randarme(int difficulte, string type = "random")
+        public static Arme Randarme(int difficulte, string type = "random")
         {
             Random random = new Random();
             if (type != "Hache" && type != "Épée" && type != "Arc")
@@ -135,7 +134,7 @@ namespace ARX.model
                 enchant = listEnchant[random.Next(listEnchant.Count)];
             }
 
-            return new Armes(type, "NomAléatoire", level, degatsMin, degatsMax, probabilite, probaCritique, multicritique, enchant);
+            return new Arme(type, "NomAléatoire", level, degatsMin, degatsMax, probabilite, probaCritique, multicritique, enchant);
         }
 
         public static List<string> listEnchant = new List<string>
