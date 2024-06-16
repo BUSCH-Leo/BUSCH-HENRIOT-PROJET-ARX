@@ -9,9 +9,6 @@
             <MenuItem Header="File">
                 <MenuItem Header="Save"/>
             </MenuItem>
-            <MenuItem Header="Edit">
-                <MenuItem Header="Generation" Click="GenerationMenuItem_Click"/>
-            </MenuItem>
         </Menu>
 
         <StackPanel DockPanel.Dock="Left" Margin="10">

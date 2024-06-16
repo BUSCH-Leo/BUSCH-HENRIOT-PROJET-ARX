@@ -235,16 +235,5 @@ namespace ARX.view
         {
             MessageBox.Show("Options :\n1. Sauvegarder\n2. Quitter", "Options", MessageBoxButton.OK);
         }
-
-        // Méthode appelée lors du clic sur le menu "Génération"
-        private void GenerationMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            // Régénérer la grille avec une nouvelle matrice d'adjacence
-            labyActuel.Initialize(10, "imparfait", 1, 10, 50, 50, 1, false,1,1);
-            // Nettoyer la grille actuelle
-            CellGrid.Children.Clear();
-            // Regénérer la grille avec les nouveaux murs
-            GenerateGrid(labyActuel);
-        }
     }
 }
