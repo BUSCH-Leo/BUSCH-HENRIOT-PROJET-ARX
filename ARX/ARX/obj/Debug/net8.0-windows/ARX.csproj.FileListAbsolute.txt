@@ -114,3 +114,5 @@ C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\
 C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\ARX.genruntimeconfig.cache
 C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\ref\ARX.dll
 C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\joueur_top.png
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\enemy\Goblin1front.png
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\enemy\Goblin1top.png

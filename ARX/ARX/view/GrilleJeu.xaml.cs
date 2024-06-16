@@ -17,7 +17,7 @@ namespace ARX.view
         {
             InitializeComponent();
             labyActuel = new Labyrinthe();
-            labyActuel.Initialize(10, "imparfait", 1, 10, 50, 50, 1, false);
+            labyActuel.Initialize(10, "imparfait", 1, 10, 50, 50, 1, false,1,1);
             GenerateGrid(labyActuel);
             this.KeyDown += new KeyEventHandler(OnButtonKeyDown);
             this.Focusable = true;
@@ -152,6 +152,7 @@ namespace ARX.view
 
                 // Add walls to the cell
                 AddWallsToCell(cellule, cellGrid);
+                AddEnemyImage(cellule, cellGrid);
 
                 // Ensure the cell is placed at the correct X and Y coordinates
                 CellGrid.Children.Add(cellGrid);
@@ -159,6 +160,32 @@ namespace ARX.view
                 Grid.SetColumn(cellGrid, column);
             }
         }
+        private void AddEnemyImage(Cellule cellule, Grid cellGrid)
+        {
+            if (cellule.EnemyInCell != null)
+            {
+                Enemy enemy = cellule.EnemyInCell;
+                Image enemyImage = new Image();
+
+                // Generate the path to the enemy image based on the enemy's type and index
+                string imagePathTop = $"pack://application:,,,/ARX;component/view/Images/enemy/{enemy.Type}{enemy.IndexImage}top.png";
+
+                // Use the top image for the enemy
+                Uri imageUri = new Uri(imagePathTop, UriKind.Absolute);
+                BitmapImage bitmap = new BitmapImage(imageUri);
+                enemyImage.Source = bitmap;
+
+                // Set image properties
+                enemyImage.Stretch = Stretch.Uniform; // Maintain aspect ratio
+                enemyImage.Width = 30; // Adjust width as needed
+                enemyImage.Height = 30; // Adjust height as needed
+
+                // Add the enemy image to the grid
+                cellGrid.Children.Add(enemyImage);
+            }
+        }
+
+
 
         private void AddWallsToCell(Cellule cellule, Grid cellGrid)
         {
@@ -213,7 +240,7 @@ namespace ARX.view
         private void GenerationMenuItem_Click(object sender, RoutedEventArgs e)
         {
             // Régénérer la grille avec une nouvelle matrice d'adjacence
-            labyActuel.Initialize(10, "imparfait", 1, 10, 50, 50, 1, false);
+            labyActuel.Initialize(10, "imparfait", 1, 10, 50, 50, 1, false,1,1);
             // Nettoyer la grille actuelle
             CellGrid.Children.Clear();
             // Regénérer la grille avec les nouveaux murs

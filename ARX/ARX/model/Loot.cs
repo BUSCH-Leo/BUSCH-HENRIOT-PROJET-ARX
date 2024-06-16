@@ -126,8 +126,10 @@ namespace ARX.model
             }
 
             probaCritique = random.Next(0, level / 5 + 5) * level;
-            multicritique = random.Next(2, level / 10);
-
+            if (level < 30){ multicritique = 2; }
+            else {
+                multicritique = random.Next(2, level / 10);
+            }
             if (level >= 100 && random.Next(0, 2) == 1 || random.Next(level, 101) == 100)
             {
                 enchant = listEnchant[random.Next(listEnchant.Count)];

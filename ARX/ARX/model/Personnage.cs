@@ -98,7 +98,7 @@ namespace ARX.model
                 Loot stuff = new Loot();
                 stuff.GenererLoot(difficulte - 20, 85, rand.Next(0, 4));
                 stuff.Argent = rand.Next(0, difficulte * 2 + 12);
-                int indeximage = rand.Next(0,nbimagegobl+1);
+                int indeximage = rand.Next(1,nbimagegobl+1);
 
                 return new Enemy(Nom, type, VieMax, degaMin, degaMax, probaTouch, stuff, indeximage);
             }
