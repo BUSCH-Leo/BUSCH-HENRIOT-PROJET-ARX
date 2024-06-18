@@ -67,7 +67,10 @@ namespace ARX.view
     public class Item
     {
         public string Name { get; set; }
+        public string Type { get; set; }
         public double Price { get; set; }
+
+        public int EffectValue { get; set; }
         public bool IsSelected { get; set; }
     }
 }

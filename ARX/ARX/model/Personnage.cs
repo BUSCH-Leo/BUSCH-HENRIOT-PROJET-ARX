@@ -20,10 +20,10 @@ namespace ARX.model
         public string Nom { get; set; }
         public string Classe { get; set; }
         public Arme Armes { get; set; }
-        public int VieMax { get; set; }
-        public int Vie { get; set; }
-        public int Force { get; set; }
-        public int Dexterite { get; set; }
+        public int VieMax { get; set; } = 100;
+        public int Vie { get; set; } = 100;
+        public int Force { get; set; } = 1;
+        public int Dexterite { get; set; } = 1;
         public List<Effet> Effets { get; set; }
         public string TopSprite { get; set; }
         public string FrontSprite { get; set; }
@@ -76,6 +76,7 @@ namespace ARX.model
             Stuff = stuff;
             IndexImage = indeximage;
         }
+
         public static Enemy GenererEnemy(int difficulte, string type = "random")
         {
             Random rand = new Random();
