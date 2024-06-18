@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using ARX.model;
 using System.IO;
 
+
 namespace ARX.view
 {
     public partial class GrilleJeu : UserControl
@@ -19,7 +20,7 @@ namespace ARX.view
         {
             InitializeComponent();
             labyActuel = new Labyrinthe();
-            labyActuel.Initialize(10, "imparfait", 1, 50, 50, 1, false, 1, 1);
+            labyActuel.Initialize(10, "imparfait", 1, 10, 50, 1, false, 1, 1);
             GenerateGrid(labyActuel);
             this.KeyDown += new KeyEventHandler(OnButtonKeyDown);
             this.Focusable = true;
@@ -182,7 +183,7 @@ namespace ARX.view
                 }
                 if (cellule.DifficulteSortie > 0 && cellule.DifficulteSortie < 6)
                 {
-                    int valeur=cellule.DifficulteSortie;
+                    int valeur = cellule.DifficulteSortie;
                     Image enemyImage = new Image();
 
                     // Générer le chemin d'accès aux images en fonction de l'index de l'ennemi
@@ -254,35 +255,6 @@ namespace ARX.view
             wallImage.RenderTransform = rotateTransform;
 
             cellGrid.Children.Add(wallImage); // Ajout de l'image directement au conteneur de la cellule (Grid)
-        }
-
-
-
-        private void QuitterButton_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private async void SaveButton_Click(object sender, RoutedEventArgs e)
-        {
-            Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog
-            {
-                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads",
-                FileName = "GameSave",
-                DefaultExt = ".arxsave",
-                Filter = "Fichiers ARXSAVE (*.arxsave)|*.arxsave"
-            };
-
-            bool? result = saveFileDialog.ShowDialog();
-
-            if (result == true)
-            {
-                string filePath = saveFileDialog.FileName;
-
-                await Task.Run(() => File.WriteAllText(filePath, "Game saved here"));
-
-                MessageBox.Show($"Fichier enregistré : {filePath}");
-            }
         }
 
         private void QuitterButton_Click(object sender, RoutedEventArgs e)

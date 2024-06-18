@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="view\GrilleJeu.xaml.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="view\Images\ARX.ico" />
     <None Remove="view\Images\Character.png" />
     <None Remove="view\Images\enemy\Goblin1front.png" />
@@ -39,9 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="view\GrilleJeu.xaml.cs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="view\Images\ARX.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

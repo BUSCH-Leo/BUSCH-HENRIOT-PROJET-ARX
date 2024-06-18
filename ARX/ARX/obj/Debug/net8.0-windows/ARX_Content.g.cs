@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/grillejeu.xaml.cs")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/arx.ico")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/character.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/enemy/goblin1front.png")]
