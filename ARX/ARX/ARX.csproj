@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="view\GrilleJeu.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="view\Images\ARX.ico" />
+    <None Remove="view\Images\Character.png" />
     <None Remove="view\Images\enemy\Goblin1front.png" />
     <None Remove="view\Images\enemy\Goblin1top.png" />
     <None Remove="view\Images\fond1.png" />
@@ -19,6 +25,12 @@
     <None Remove="view\Images\joueur_top.png" />
     <None Remove="view\Images\mur1.png" />
     <None Remove="view\Images\mur2.png" />
+    <None Remove="view\Images\settings.png" />
+    <None Remove="view\Images\stairs1.png" />
+    <None Remove="view\Images\stairs2.png" />
+    <None Remove="view\Images\stairs3.png" />
+    <None Remove="view\Images\stairs4.png" />
+    <None Remove="view\Images\stairs5.png" />
     <None Remove="view\Images\test1.png" />
     <None Remove="view\Images\test2.png" />
     <None Remove="view\Images\test3.png" />
@@ -27,6 +39,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="view\GrilleJeu.xaml.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\ARX.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\Character.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="view\Images\enemy\Goblin1front.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -58,6 +79,27 @@
 
   <ItemGroup>
     <Content Include="view\Images\joueur_top.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\settings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="view\Images\stairs1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\stairs2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\stairs3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\stairs4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="view\Images\stairs5.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

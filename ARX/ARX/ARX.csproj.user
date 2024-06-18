@@ -7,9 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="view\GrilleJeu.xaml.cs">
+    <Content Update="view\GrilleJeu.xaml.cs">
       <SubType>Code</SubType>
-    </Compile>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">

@@ -1,0 +1,62 @@
+﻿<Window x:Class="ARX.view.InventoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARX.view"
+        mc:Ignorable="d"
+        Title="InventoryWindow" Height="450" Width="800"
+        KeyDown="Window_KeyDown">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Inventaire">
+                <StackPanel>
+                    <TextBlock Text="Inventaire :" FontSize="20" Margin="10"/>
+                    <ListBox Name="InventoryList" Margin="10" ItemsSource="{Binding InventoryItems}" DisplayMemberPath="Name"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Infos sur le personnage">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" VerticalAlignment="Center">
+                        <TextBlock Name="PlayerName" Text="{Binding Settings.Pseudo}" FontSize="24" HorizontalAlignment="Center" Margin="10"/>
+                    </StackPanel>
+
+                    <Grid Grid.Row="1" VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10">
+                            <TextBlock>
+                                <Run Text="Vie : "/>
+                                <Run Text="{Binding Personnage.Vie}"/>
+                                <Run Text="/"/>
+                                <Run Text="{Binding Personnage.VieMax}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Dextérité : "/>
+                                <Run Text="{Binding Personnage.Dexterite}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Force : "/>
+                                <Run Text="{Binding Personnage.Force}"/>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Image Name="CharacterImage" Source="{Binding Settings.ProfileImagePath}" Height="200" Margin="10"/>
+                            <ProgressBar Value="{Binding Personnage.Vie}" Maximum="{Binding Personnage.VieMax}" Width="200" Height="20" VerticalAlignment="Top" Margin="0,10"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

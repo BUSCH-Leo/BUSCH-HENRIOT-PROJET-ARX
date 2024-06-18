@@ -116,3 +116,13 @@ C:\Users\tyyyty\Downloads\ARX_avec_deplacement\ARX\ARX\obj\Debug\net8.0-windows\
 C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\joueur_top.png
 C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\enemy\Goblin1front.png
 C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\enemy\Goblin1top.png
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\ARX.ico
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\stairs1.png
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\stairs2.png
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\stairs3.png
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\stairs4.png
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\stairs5.png
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\SettingsWindow.baml
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\InventoryWindow.g.cs
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\SettingsWindow.g.cs
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX_MarkupCompile.lref

@@ -1,17 +1,20 @@
-﻿using ARX.view;
+﻿using System;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using ARX.model;
+using ARX.view;
 
 namespace ARX
 {
     public partial class MainWindow : Window
     {
-        public int taille = 10;
-        public string type = "imparfait";
+        private Settings settings;
+
         public MainWindow()
         {
             InitializeComponent();
             this.Icon = new BitmapImage(new Uri("pack://application:,,,/view/Images/ARX.ico"));
+            settings = Settings.Load();
         }
 
         private void JouerButton_Click(object sender, RoutedEventArgs e)
@@ -33,15 +36,19 @@ namespace ARX
             if (openFileDialog.ShowDialog() == true)
             {
                 string filePath = openFileDialog.FileName;
-
                 MessageBox.Show($"Fichier sélectionné : {filePath}");
             }
         }
 
-
         private void QuitterButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow settingsWindow = new SettingsWindow(settings);
+            settingsWindow.ShowDialog();
         }
     }
 }

@@ -49,5 +49,9 @@
             <Button Name="ChargerButton" Content="Charger" Style="{StaticResource ButtonStyle}" Click="ChargerButton_Click"/>
             <Button Name="QuitterButton" Content="Quitter" Style="{StaticResource ButtonStyle}" Click="QuitterButton_Click"/>
         </StackPanel>
+
+        <Button Name="SettingsButton" Width="50" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10" Click="SettingsButton_Click" Grid.Row="1">
+            <Image Source="/ARX;component/view/Images/settings.png"/>
+        </Button>
     </Grid>
 </Window>

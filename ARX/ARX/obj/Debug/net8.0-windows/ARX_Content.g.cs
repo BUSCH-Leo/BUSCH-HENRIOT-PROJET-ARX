@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/grillejeu.xaml.cs")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/arx.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/character.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/enemy/goblin1front.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/enemy/goblin1top.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/fond1.png")]
@@ -18,5 +21,11 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/mur1.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/mur2.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/joueur_top.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/settings.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/stairs1.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/stairs2.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/stairs3.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/stairs4.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/stairs5.png")]
 
 

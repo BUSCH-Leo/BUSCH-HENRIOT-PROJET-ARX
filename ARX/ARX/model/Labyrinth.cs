@@ -7,6 +7,15 @@ using System.IO;
 
 namespace ARX.model
 {
+    public class Sortie
+    {
+        public int Difficulte { get; set; }
+
+        public Sortie(int difficulte)
+        {
+            Difficulte = difficulte;
+        }
+    }
     public class Cellule
     {
         public int X { get; set; }
@@ -26,6 +35,7 @@ namespace ARX.model
         public int Multiloot { get; set; }
         public bool IsVisible { get; set; }
         public bool IsExplored { get; set; }
+        public int DifficulteSortie { get; set; }
 
 
 
@@ -48,6 +58,7 @@ namespace ARX.model
             Multiloot = multiloot;
             IsVisible = false;
             IsExplored = false;
+            DifficulteSortie = 0;
         }
         public Loot GenererLoot()
         {
@@ -57,13 +68,11 @@ namespace ARX.model
         }
     }
 
-
     public class Labyrinthe
     {
         public int Taille { get; set; }
         public string Type { get; set; }
         public int Profondeur { get; set; }
-        public int QuotaSpawn { get; set; }
         public int PourcentEnnemi { get; set; }
         public int PourcentCoffre { get; set; }
         public int Difficulte { get; set; }
@@ -73,12 +82,11 @@ namespace ARX.model
         public int Multiargent { get; set; }
         public int Multiloot { get; set; }
 
-        public void Initialize(int taille, string type, int profondeur, int quotaSpawn, int pourcentEnnemi, int pourcentCoffre, int difficulte, bool visibilite, int multiargent, int multiloot)
+        public void Initialize(int taille, string type, int profondeur, int pourcentEnnemi, int pourcentCoffre, int difficulte, bool visibilite, int multiargent, int multiloot)
         {
             Taille = taille;
             Type = type;
             Profondeur = profondeur;
-            QuotaSpawn = quotaSpawn;
             PourcentEnnemi = pourcentEnnemi;
             PourcentCoffre = pourcentCoffre;
             Difficulte = difficulte;
@@ -95,7 +103,7 @@ namespace ARX.model
             }
 
             Random random = new Random();
-            int nbfond= 5;
+            int nbfond = 5;
             int nbmurs = 2;
 
             for (int x = 0; x < taille; x++)
@@ -120,7 +128,7 @@ namespace ARX.model
                         multiloot
                     )
                     { };
-                    
+
                     if (random.Next(0, 100) < PourcentCoffre)
                     {
                         var loot = new Loot();
@@ -154,7 +162,19 @@ namespace ARX.model
             {
                 Generateur.LabyrinthePlusQueParfait(ref me, 0, 0);
             }
+            SetRandomExitDifficulties(10);
         }
 
+        private void SetRandomExitDifficulties(int numberOfCells)
+        {
+            Random random = new Random();
+            int cellCount = Cellules.Count;
+
+            for (int i = 0; i < numberOfCells; i++)
+            {
+                int randomIndex = random.Next(0, cellCount);
+                Cellules[randomIndex].DifficulteSortie = random.Next(1, 6);
+            }
+        }
     }
 }

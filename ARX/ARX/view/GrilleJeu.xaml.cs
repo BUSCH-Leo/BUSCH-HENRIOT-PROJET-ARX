@@ -19,7 +19,7 @@ namespace ARX.view
         {
             InitializeComponent();
             labyActuel = new Labyrinthe();
-            labyActuel.Initialize(10, "imparfait", 1, 10, 50, 50, 1, false,1,1);
+            labyActuel.Initialize(10, "imparfait", 1, 50, 50, 1, false, 1, 1);
             GenerateGrid(labyActuel);
             this.KeyDown += new KeyEventHandler(OnButtonKeyDown);
             this.Focusable = true;
@@ -46,6 +46,11 @@ namespace ARX.view
                 case Key.Right:
                     MovePlayer(0, 1); // Move right
                     break;
+            }
+            if (e.Key == Key.E)
+            {
+                InventoryWindow inventoryWindow = new InventoryWindow();
+                inventoryWindow.Show();
             }
         }
 
@@ -175,6 +180,26 @@ namespace ARX.view
                     // Ajouter l'image de l'ennemi à la grille
                     cellGrid.Children.Add(enemyImage);
                 }
+                if (cellule.DifficulteSortie > 0 && cellule.DifficulteSortie < 6)
+                {
+                    int valeur=cellule.DifficulteSortie;
+                    Image enemyImage = new Image();
+
+                    // Générer le chemin d'accès aux images en fonction de l'index de l'ennemi
+                    string stairsImagePath = $"pack://application:,,,/ARX;component/view/Images/stairs{valeur}.png";
+
+                    // Utiliser l'image top pour l'ennemi
+                    Uri stairsImageUri = new Uri(stairsImagePath, UriKind.Absolute);
+                    BitmapImage stairsbitmap = new BitmapImage(stairsImageUri);
+                    enemyImage.Source = stairsbitmap;
+
+                    // Taille de la cellule (supposant que chaque cellule a la même taille)
+                    double cellSize = CellGrid.ActualWidth / labyActuel.Taille; // Supposant une grille carrée
+                    enemyImage.Stretch = Stretch.Uniform;
+
+                    // Ajouter l'image de l'ennemi à la grille
+                    cellGrid.Children.Add(enemyImage);
+                }
 
                 // Add walls to the cell
                 AddWallsToCell(cellule, cellGrid);
@@ -232,6 +257,33 @@ namespace ARX.view
         }
 
 
+
+        private void QuitterButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog
+            {
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads",
+                FileName = "GameSave",
+                DefaultExt = ".arxsave",
+                Filter = "Fichiers ARXSAVE (*.arxsave)|*.arxsave"
+            };
+
+            bool? result = saveFileDialog.ShowDialog();
+
+            if (result == true)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                await Task.Run(() => File.WriteAllText(filePath, "Game saved here"));
+
+                MessageBox.Show($"Fichier enregistré : {filePath}");
+            }
+        }
 
         private void QuitterButton_Click(object sender, RoutedEventArgs e)
         {
