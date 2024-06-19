@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/arx.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/background.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/character.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/creature.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/enemy/goblin1front.png")]
@@ -18,6 +19,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/fond3.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/fond4.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/fond5.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/foreground.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/maze.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/mur1.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/images/mur2.png")]

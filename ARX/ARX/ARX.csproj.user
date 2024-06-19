@@ -10,6 +10,9 @@
     <Compile Update="view\CombatWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="view\Vendeur.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -22,6 +25,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="view\InventoryWindowCombat.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="view\Vendeur.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

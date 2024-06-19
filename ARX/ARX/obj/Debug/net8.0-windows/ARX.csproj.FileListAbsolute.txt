@@ -178,3 +178,12 @@ C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-
 C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\CombatWindow.g.cs
 C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\InventoryWindowCombat.g.cs
 C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\CombatWindow.baml
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\Character.png
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\settings.png
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\creature.png
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\maze.png
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\InventoryWindowCombat.baml
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\CombatWindow.g.cs
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\InventoryWindowCombat.g.cs
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\CombatWindow.baml
+C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\InventoryWindow.baml

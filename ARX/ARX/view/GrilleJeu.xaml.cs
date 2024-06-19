@@ -105,6 +105,16 @@ namespace ARX.view
 
                         playerHealth = joueur.Vie;
                     }
+
+                    if (newCell.EnemyInCell != null)
+                    {
+                        CombatWindow combatWindow = new CombatWindow(joueur, newCell.EnemyInCell, inventory);
+                        combatWindow.PlayerDied += CombatWindow_PlayerDied; // Abonnez-vous à l'événement
+                        combatWindow.EnemyDefeated += CombatWindow_EnemyDefeated; // Abonnez-vous à l'événement EnemyDefeated
+                        combatWindow.ShowDialog();
+
+                        playerHealth = joueur.Vie;
+                    }
                 }
             }
         }
