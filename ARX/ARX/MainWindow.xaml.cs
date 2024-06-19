@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using ARX.model;
@@ -9,6 +10,10 @@ namespace ARX
     public partial class MainWindow : Window
     {
         private Settings settings;
+        private Personnage joueur; // ajouter
+        private InventoryWindow inventory; // ajouter
+
+        public Arx ARX { get; set; }
 
         public MainWindow()
         {
@@ -17,9 +22,21 @@ namespace ARX
             settings = Settings.Load();
         }
 
-        private void JouerButton_Click(object sender, RoutedEventArgs e)
+        private void JouerButton_Click(object sender, RoutedEventArgs e) // modifier
         {
-            GrilleJeu grilleJeu = new GrilleJeu();
+            joueur = new Personnage(
+                "", // type
+                Arme.Randarme(1), // arme
+                100, // vie max
+                100, // vie
+                1, // force
+                1, // dexterite
+                10 // pognon
+            );
+
+            inventory = new InventoryWindow(joueur);
+            inventory.InitializeInventory();
+            GrilleJeu grilleJeu = new GrilleJeu(joueur, inventory,1,1);
             this.Content = grilleJeu;
         }
 

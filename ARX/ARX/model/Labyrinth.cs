@@ -82,33 +82,40 @@ namespace ARX.model
         public int Multiargent { get; set; }
         public int Multiloot { get; set; }
 
-        public void Initialize(int taille, string type, int profondeur, int pourcentEnnemi, int pourcentCoffre, int difficulte, bool visibilite, int multiargent, int multiloot)
+        //labyActuel.Initialize(ARX.profondeur, ARX.difficulte, fogofwar);
+
+        public void Initialize(int profondeur, int difficulte, bool visibilite, int multiargent = 1, int multiloot = 1)
         {
-            Taille = taille;
-            Type = type;
+            Random random = new Random();
+            if (profondeur < 15) { Taille = random.Next(5, profondeur + 10); }
+            else if (profondeur <= 40) { Taille = random.Next(profondeur - 10, profondeur + 10); }
+            else { Taille = random.Next(profondeur - 10, 50); }
+            int randtype = random.Next(1, 100);
+            if (randtype < 66) { Type = "Imparfait"; }
+            else { Type = "Plusqueparfait"; }
             Profondeur = profondeur;
-            PourcentEnnemi = pourcentEnnemi;
-            PourcentCoffre = pourcentCoffre;
+            PourcentEnnemi = random.Next(5, 20);
+            PourcentCoffre = random.Next(15, 60);
             Difficulte = difficulte;
             Visibilite = visibilite;
             Cellules = new List<Cellule>();
             Multiargent = multiargent;
             Multiloot = multiloot;
+            int entre = 0;
 
             MatriceAdjacence = new List<List<bool>>();
-            for (int i = 0; i < taille * taille; i++)
+            for (int i = 0; i < Taille * Taille; i++)
             {
-                List<bool> row = new List<bool>(new bool[taille * taille]);
+                List<bool> row = new List<bool>(new bool[Taille * Taille]);
                 MatriceAdjacence.Add(row);
             }
 
-            Random random = new Random();
             int nbfond = 5;
             int nbmurs = 2;
 
-            for (int x = 0; x < taille; x++)
+            for (int x = 0; x < Taille; x++)
             {
-                for (int y = 0; y < taille; y++)
+                for (int y = 0; y < Taille; y++)
                 {
                     string fond = $"pack://application:,,,/ARX;component/view/Images/fond{random.Next(1, nbfond + 1)}.png";
                     string mur = $"pack://application:,,,/ARX;component/view/Images/mur{random.Next(1, nbmurs + 1)}.png";
@@ -149,25 +156,28 @@ namespace ARX.model
                     Cellules.Add(cellule);
                 }
             }
+            int entreX = random.Next(1, Taille + 1);
+            int entreY = random.Next(1, Taille + 1);
+            entre = entreY * Taille + entreX;
             var me = this;
-            if (type == "Parfait")
+            if (Type == "Parfait")
             {
-                Generateur.LabyrintheParfait(ref me, 0, 0);
+                Generateur.LabyrintheParfait(ref me, entreX, entreY);
             }
-            else if (type == "Imparfait")
+            else if (Type == "Imparfait")
             {
-                Generateur.LabyrintheImparfait(ref me, 0, 0, 10);
+                Generateur.LabyrintheImparfait(ref me, entreX, entreY,random.Next(5,20));
 
             }
-            else if (type == "Plusqueparfait")
+            else if (Type == "Plusqueparfait")
             {
-                Generateur.LabyrinthePlusQueParfait(ref me, 0, 0);
+                Generateur.LabyrinthePlusQueParfait(ref me, entreX, entreY);
             }
-            int tailleDivisee = (int)Math.Round((double)taille / 4);
-            SetRandomExitDifficulties(1+random.Next(0,tailleDivisee));
+            int tailleDivisee = (int)Math.Round((double)Taille / 4);
+            SetRandomExitDifficulties(1+random.Next(0,tailleDivisee),entre);
         }
 
-        private void SetRandomExitDifficulties(int numberexit)
+        private void SetRandomExitDifficulties(int numberexit, int entre)
         {
             Random random = new Random();
             int cellCount = Cellules.Count;
@@ -175,7 +185,14 @@ namespace ARX.model
             for (int i = 0; i < numberexit; i++)
             {
                 int randomIndex = random.Next(0, cellCount);
-                Cellules[randomIndex].DifficulteSortie = random.Next(1, 6);
+                if (randomIndex == entre)
+                {
+                    i--;
+                }
+                else
+                {
+                    Cellules[randomIndex].DifficulteSortie = random.Next(1, 6);
+                }
             }
         }
     }

@@ -20,12 +20,16 @@ namespace ARX.view
         private CombatWindow combatWindow;
         private Vendeur vendeur;
         private Arme arme;
+        private bool fogofwar = false;
+        private int Difficulte;
+        private int Profondeur;
 
-        public GrilleJeu(Personnage joueur, InventoryWindow inventory)
+
+        public GrilleJeu(Personnage joueur, InventoryWindow inventory, int difficulte, int profondeur)
         {
             InitializeComponent();
             labyActuel = new Labyrinthe();
-            labyActuel.Initialize(10, "Imparfait", 1, 10, 50, 1, false, 1, 1);
+            labyActuel.Initialize(profondeur, difficulte, fogofwar);
             GenerateGrid(labyActuel);
             this.KeyDown += new KeyEventHandler(OnButtonKeyDown);
             this.Focusable = true;
@@ -44,6 +48,8 @@ namespace ARX.view
                 joueur = joueur,
                 labyrinthe = labyActuel
             };
+            Difficulte = difficulte;
+            Profondeur = profondeur;
         }
 
         private void OnButtonKeyDown(object sender, KeyEventArgs e)
@@ -114,7 +120,7 @@ namespace ARX.view
                     if (newCell.DifficulteSortie != 0)
                     {
                         labyActuel = new Labyrinthe();
-                        labyActuel.Initialize(10, "Imparfait", 1, 10, 50, 1, false, 1, 1);
+                        labyActuel.Initialize(Profondeur, Difficulte, fogofwar);
                         GenerateGrid(labyActuel);
                         vendeur = new Vendeur(inventory);
                         vendeur.Show();
