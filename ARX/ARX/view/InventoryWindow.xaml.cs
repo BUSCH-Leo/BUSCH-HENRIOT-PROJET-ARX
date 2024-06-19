@@ -10,33 +10,28 @@ namespace ARX.view
     {
         public ObservableCollection<Item> InventoryItems { get; set; }
         public string Pseudo { get; set; }
-        public int Vie { get; set; }
-        public int VieMax { get; set; }
-        public int Dexterite { get; set; }
-        public int Force { get; set; }
+        private Personnage joueur;
 
         public InventoryWindow(Personnage joueur)
         {
             InitializeComponent();
-
             InventoryItems = new ObservableCollection<Item>();
-
             var settings = Settings.Load();
             Pseudo = settings.Pseudo;
+            this.joueur = joueur;
+            UpdateDataContext();
+        }
 
-            Vie = joueur.Vie;
-            VieMax = joueur.VieMax;
-            Dexterite = joueur.Dexterite;
-            Force = joueur.Force;
-
+        private void UpdateDataContext()
+        {
             this.DataContext = new
             {
-                Settings = settings,
+                Settings = Settings.Load(),
                 InventoryItems = InventoryItems,
-                Vie = Vie,
-                VieMax = VieMax,
-                Dexterite = Dexterite,
-                Force = Force,
+                Vie = joueur.Vie,
+                VieMax = joueur.VieMax,
+                Dexterite = joueur.Dexterite,
+                Force = joueur.Force,
                 Personnage = joueur,
                 Arme = joueur.Armes
             };
@@ -63,6 +58,19 @@ namespace ARX.view
         public void RemoveItem(Item itemToRemove)
         {
             InventoryItems.Remove(itemToRemove);
+        }
+
+        public void ShowInventory()
+        {
+            UpdateDataContext();
+            Show();
+            Focus();
+        }
+
+        public void UpdatePlayerData(Personnage joueur)
+        {
+            this.joueur = joueur;
+            UpdateDataContext();
         }
     }
 
@@ -160,6 +168,8 @@ namespace ARX.view
 
             return items;
         }
+
+        
     }
 
 }

@@ -13,12 +13,22 @@
         </Menu>
 
         <StackPanel DockPanel.Dock="Left" Margin="10">
-            <TextBlock Text="Vie : 0"/>
-            <TextBlock Text="Argent : 0"/>
+            <TextBlock>
+                <Run Text="Vie : "/>
+                <Run Text="{Binding joueur.Vie}"/>
+            </TextBlock>
+
+            <TextBlock>
+                <Run Text="Argent : "/>
+                <Run Text="{Binding joueur.Money}"/>
+            </TextBlock>
+            
             <TextBlock Text="Difficulté : 0"/>
             <Separator/>
-            <TextBlock Text="Seed : 0"/>
-            <TextBlock Text="Taille : 0"/>
+            <TextBlock>
+                <Run Text="Taille : "/>
+                <Run Text="{Binding labyrinthe.Taille}"/>
+            </TextBlock>
         </StackPanel>
 
         <Border BorderBrush="Black" BorderThickness="2" Margin="10" DockPanel.Dock="Right">

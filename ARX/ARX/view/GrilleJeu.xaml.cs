@@ -21,7 +21,7 @@ namespace ARX.view
         private Vendeur vendeur;
         private Arme arme;
 
-        public GrilleJeu()
+        public GrilleJeu(Personnage joueur, InventoryWindow inventory)
         {
             InitializeComponent();
             labyActuel = new Labyrinthe();
@@ -31,24 +31,19 @@ namespace ARX.view
             this.Focusable = true;
             this.Focus();
 
-            // Initialisation du joueur
-            joueur = new Personnage(
-                "", // type
-                Arme.Randarme(1), // arme
-                100, // vie max
-                100, // vie
-                1, // force
-                1, // dexterite
-                10 // pognon
-            );
+            this.joueur = joueur;
 
             arme = joueur.Armes;
 
-            // Initialisation de la fenêtre d'inventaire avec le joueur
-            inventory = new InventoryWindow(joueur);
-            inventory.InitializeInventory();
+            this.inventory = inventory;
 
             vendeur = new Vendeur(inventory);
+
+            this.DataContext = new
+            {
+                joueur = joueur,
+                labyrinthe = labyActuel
+            };
         }
 
         private void OnButtonKeyDown(object sender, KeyEventArgs e)
@@ -72,8 +67,8 @@ namespace ARX.view
                     MovePlayer(0, 1); // Move right
                     break;
                 case Key.E:
-                    inventory.Show();
-                    inventory.Focus();
+                    inventory.UpdatePlayerData(joueur); // Met à jour les données du joueur dans l'inventaire
+                    inventory.ShowInventory(); // Affiche l'inventaire
                     break;
             }
         }
@@ -110,8 +105,8 @@ namespace ARX.view
                     if (newCell.EnemyInCell != null)
                     {
                         CombatWindow combatWindow = new CombatWindow(joueur, newCell.EnemyInCell, inventory, arme);
-                        combatWindow.PlayerDied += CombatWindow_PlayerDied; // Abonnez-vous à l'événement
-                        combatWindow.EnemyDefeated += CombatWindow_EnemyDefeated; // Abonnez-vous à l'événement EnemyDefeated
+                        combatWindow.PlayerDied += CombatWindow_PlayerDied;
+                        combatWindow.EnemyDefeated += CombatWindow_EnemyDefeated;
                         combatWindow.ShowDialog();
 
                         playerHealth = joueur.Vie;
