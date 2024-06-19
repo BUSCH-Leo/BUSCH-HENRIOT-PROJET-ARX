@@ -172,3 +172,9 @@ C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-
 C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.pdb
 C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ARX.genruntimeconfig.cache
 C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\ref\ARX.dll
+C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\creature.png
+C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\bin\Debug\net8.0-windows\view\Images\maze.png
+C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\InventoryWindowCombat.baml
+C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\CombatWindow.g.cs
+C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\InventoryWindowCombat.g.cs
+C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\view\CombatWindow.baml

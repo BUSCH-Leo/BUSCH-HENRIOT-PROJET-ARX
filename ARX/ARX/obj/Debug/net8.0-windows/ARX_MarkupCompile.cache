@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\App.xaml
-4-114852917
-18-945530800
-14727672058
+6213317398
+20709490014
+16869770883
 198915248976
-MainWindow.xaml;view\GrilleJeu.xaml;view\InventoryWindow.xaml;view\SettingsWindow.xaml;
+MainWindow.xaml;view\CombatWindow.xaml;view\GrilleJeu.xaml;view\InventoryWindow.xaml;view\InventoryWindowCombat.xaml;view\SettingsWindow.xaml;
 
 False
 

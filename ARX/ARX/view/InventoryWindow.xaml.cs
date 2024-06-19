@@ -49,9 +49,9 @@ namespace ARX.view
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.E)
+            if (e.Key == Key.Escape)
             {
-                this.Close();
+                this.Hide();
             }
         }
 

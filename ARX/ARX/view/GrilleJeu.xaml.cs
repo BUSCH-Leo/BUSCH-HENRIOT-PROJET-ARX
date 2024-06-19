@@ -65,21 +65,10 @@ namespace ARX.view
                 case Key.Right:
                     MovePlayer(0, 1); // Move right
                     break;
-            }
-
-            if (e.Key == Key.E)
-            {
-                // Vérifier si la fenêtre d'inventaire est déjà ouverte
-                if (inventory == null || !inventory.IsVisible)
-                {
-                    // Si elle n'existe pas ou n'est pas visible, créer une nouvelle instance
-                    inventory = new InventoryWindow(joueur);
-                    inventory.InitializeInventory();
-                }
-
-                // Afficher la fenêtre d'inventaire
-                inventory.Show();
-                inventory.Focus(); // Assurez-vous que la fenêtre a le focus
+                case Key.E:
+                    inventory.Show();
+                    inventory.Focus();
+                    break;
             }
         }
 

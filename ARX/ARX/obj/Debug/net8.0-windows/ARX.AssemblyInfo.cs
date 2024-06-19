@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ARX")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3345aaceca31c22e21623a7a3bde495ea98634e3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+699ebadad570790d54365779d1cbbd681a2557c3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ARX")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ARX")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
