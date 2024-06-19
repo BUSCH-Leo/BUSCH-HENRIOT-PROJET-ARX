@@ -75,10 +75,6 @@ namespace ARX.view
                     inventory.Show();
                     inventory.Focus();
                     break;
-                case Key.F:
-                     vendeur.Show();
-                     vendeur.Focus();
-                    break;
             }
         }
 
