@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\
+C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\obj\Debug\net8.0-windows\
 ARX
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\tyyyty\Documents\GitHub\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\App.xaml
+C:\Users\06224\Downloads\temp\BUSCH-HENRIOT-PROJET-ARX\ARX\ARX\App.xaml
 7525304438
 22-353786584
 19-1345562375
-1981451641563
+198915248976
 MainWindow.xaml;view\CombatWindow.xaml;view\GrilleJeu.xaml;view\InventoryWindow.xaml;view\InventoryWindowCombat.xaml;view\SettingsWindow.xaml;view\Vendeur.xaml;
 
-False
+True
 

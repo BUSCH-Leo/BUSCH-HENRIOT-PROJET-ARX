@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ARX.controller;
 using ARX.model;
 
 namespace ARX.view
@@ -21,26 +22,24 @@ namespace ARX.view
         public ObservableCollection<Item> InventoryItems { get; set; }
         public ObservableCollection<Item> ShopItems { get; set; }
 
-        public Vendeur()
+        public InventoryWindow inventory;
+
+        public Vendeur(InventoryWindow inventory)
         {
             InitializeComponent();
-            this.Icon = new BitmapImage(new Uri("pack://application:,,,/Images/ARX.ico"));
 
-            InventoryItems = new ObservableCollection<Item>
-            {
-                new Item { Name = "Objet", Price = 10, IsSelected = false },
-                new Item { Name = "Objet_2", Price = 5, IsSelected = false }
-            };
+            InventoryItems = inventory.InventoryItems;
 
-            ShopItems = new ObservableCollection<Item>
-            {
-                new Item { Name = "Objet_3", Price = 15, IsSelected = false },
-                new Item { Name = "Objet_4", Price = 20, IsSelected = false },
-                new Item { Name = "Cramptés", Price = 50, IsSelected = false }
-            };
+            ShopItems = Item.GenerateRandomItems(5);
 
             InventoryList.ItemsSource = InventoryItems;
             ShopList.ItemsSource = ShopItems;
+
+            this.DataContext = new
+            {
+                InventoryItems = InventoryItems,
+                ShopItems = ShopItems
+            };
         }
 
         private void CheckBox_CheckedChanged(object sender, RoutedEventArgs e)
@@ -78,12 +77,13 @@ namespace ARX.view
             }
             UpdateTotalPrices();
         }
-    }
 
-    public class Item
-    {
-        public string Name { get; set; }
-        public double Price { get; set; }
-        public bool IsSelected { get; set; }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

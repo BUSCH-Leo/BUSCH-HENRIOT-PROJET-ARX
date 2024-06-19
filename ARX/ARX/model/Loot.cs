@@ -25,7 +25,7 @@ namespace ARX.model
             Argent += autreloot.Argent;
         }
 
-        public void GenererLoot(int difficulte, int pourcentObjetsSurArme=80, int nbLoot= 1)
+        public void GenererLoot(int difficulte, int pourcentObjetsSurArme=80, int nbLoot = 1)
         {
             Random random = new Random();
 
@@ -134,7 +134,7 @@ namespace ARX.model
                 enchant = listEnchant[random.Next(listEnchant.Count)];
             }
 
-            return new Arme(type, "NomAléatoire", level, degatsMin, degatsMax, probabilite, probaCritique, multicritique, enchant);
+            return new Arme(type, type, level, degatsMin, degatsMax, probabilite, probaCritique, multicritique, enchant); // Léo j'ai modif "NomAléatoire" par type pour qu'on puisse voir le type de l'arme à quoi ca correspond
         }
 
         public static List<string> listEnchant = new List<string>
@@ -144,7 +144,7 @@ namespace ARX.model
         "Glace",
         "Faiblesse",
         "Heal",
-        "Goldtouch",
+        "Goldtouch"
         };
     }
 

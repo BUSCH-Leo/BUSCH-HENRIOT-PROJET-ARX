@@ -18,6 +18,7 @@ namespace ARX.view
         private InventoryWindow inventory;
         private Personnage joueur;
         private CombatWindow combatWindow;
+        private Vendeur vendeur;
 
         public GrilleJeu()
         {
@@ -43,6 +44,8 @@ namespace ARX.view
             // Initialisation de la fenêtre d'inventaire avec le joueur
             inventory = new InventoryWindow(joueur);
             inventory.InitializeInventory();
+
+            vendeur = new Vendeur(inventory);
         }
 
         private void OnButtonKeyDown(object sender, KeyEventArgs e)
@@ -68,6 +71,10 @@ namespace ARX.view
                 case Key.E:
                     inventory.Show();
                     inventory.Focus();
+                    break;
+                case Key.F:
+                     vendeur.Show();
+                     vendeur.Focus();
                     break;
             }
         }
