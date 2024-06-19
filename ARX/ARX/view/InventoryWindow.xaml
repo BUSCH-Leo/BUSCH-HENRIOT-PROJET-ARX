@@ -13,6 +13,25 @@
                 <StackPanel>
                     <TextBlock Text="Inventaire :" FontSize="20" Margin="10"/>
                     <ListBox Name="InventoryList" Margin="10" ItemsSource="{Binding InventoryItems}" DisplayMemberPath="Name"/>
+                    <TextBlock Text="Arme :" FontSize="20" Margin="10"/>
+
+                    <StackPanel HorizontalAlignment="Left" Margin="10">
+                        <TextBlock>
+                            <Run Text="Nom : "/>
+                            <Run Text="{Binding Arme.Nom}"/>
+                        </TextBlock>
+                        <TextBlock>
+                            <Run Text="Dégats : "/>
+                            <Run Text="{Binding Arme.DegatsMin}"/>
+                            <Run Text=" - "/>
+                            <Run Text="{Binding Arme.DegatsMax}"/>
+                        </TextBlock>
+                        <TextBlock>
+                            <Run Text="Enchantement : "/>
+                            <Run Text="{Binding Arme.Enchant}"/>
+                        </TextBlock>
+                    </StackPanel>
+                    
                 </StackPanel>
             </TabItem>
 

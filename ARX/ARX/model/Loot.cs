@@ -75,7 +75,7 @@ namespace ARX.model
         public int Probabilite { get; set; }
         public int ProbaCritique { get; set; }
         public int Multicritique { get; set; }
-        public string Enchant { get; set; }
+        public string Enchant { get; set; } = "Non enchanté";
 
         public Arme(string type, string nom, int level, int degatsMin, int degatsMax, int probabilite, int probaCritique, int multicritique, string enchant)
         {

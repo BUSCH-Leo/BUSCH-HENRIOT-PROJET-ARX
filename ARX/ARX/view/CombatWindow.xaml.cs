@@ -23,7 +23,10 @@ namespace ARX.view
         public event EventHandler PlayerDied;
         public event EventHandler EnemyDefeated;
 
-        public CombatWindow(Personnage joueur, Enemy ennemi, InventoryWindow inventory)
+        private int degamin;
+        private int degamax;
+
+        public CombatWindow(Personnage joueur, Enemy ennemi, InventoryWindow inventory, Arme arme)
         {
             InitializeComponent();
             LoadImages();
@@ -36,6 +39,10 @@ namespace ARX.view
             EnnemiVie = ennemi.Vie;
             EnnemiDegMin = ennemi.degaMin;
             EnnemiDegMax = ennemi.degaMax;
+
+            degamin = arme.DegatsMin;
+            degamax = arme.DegatsMax;
+
             InitializeCombat();
         }
 
@@ -59,9 +66,9 @@ namespace ARX.view
             EnemyHealthText.Foreground = Brushes.White;
         }
 
-        private void PlayerAttack(int minDamage, int maxDamage)
+        private void PlayerAttack()
         {
-            int damage = random.Next(minDamage, maxDamage + 1);
+            int damage = random.Next(degamin, degamax + 1);
             EnnemiVie -= damage;
             if (EnnemiVie < 0) EnnemiVie = 0;
             MessageBox.Show($"You dealt {damage} damage to the enemy!");
@@ -76,7 +83,7 @@ namespace ARX.view
                 MessageBox.Show("You defeated the enemy!");
                 EnemyDefeated?.Invoke(this, EventArgs.Empty);
                 joueur.Vie = playerHealth;
-                Close(); // Fermez la fenêtre de combat
+                Close();
             }
         }
 
@@ -105,7 +112,7 @@ namespace ARX.view
 
         private void AttackButton_Click(object sender, RoutedEventArgs e)
         {
-            PlayerAttack(10, 15);
+            PlayerAttack();
         }
 
         private void FleeButton_Click(object sender, RoutedEventArgs e)

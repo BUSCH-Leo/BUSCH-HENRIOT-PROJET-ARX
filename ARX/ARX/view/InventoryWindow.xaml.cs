@@ -37,13 +37,13 @@ namespace ARX.view
                 VieMax = VieMax,
                 Dexterite = Dexterite,
                 Force = Force,
-                Personnage = joueur
+                Personnage = joueur,
+                Arme = joueur.Armes
             };
         }
 
         public void InitializeInventory()
         {
-            InventoryItems.Add(new Item { Name = "Un suce", Price = 69, IsSelected = false });
             InventoryItems.Add(new Item { Name = "Potion de vie (+10)", Type = "Potion", Price = 50, EffectValue = 10, IsSelected = false });
         }
 

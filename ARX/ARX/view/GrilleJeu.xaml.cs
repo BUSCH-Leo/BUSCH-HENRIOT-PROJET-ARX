@@ -19,6 +19,7 @@ namespace ARX.view
         private Personnage joueur;
         private CombatWindow combatWindow;
         private Vendeur vendeur;
+        private Arme arme;
 
         public GrilleJeu()
         {
@@ -40,6 +41,8 @@ namespace ARX.view
                 1, // dexterite
                 10 // pognon
             );
+
+            arme = joueur.Armes;
 
             // Initialisation de la fenêtre d'inventaire avec le joueur
             inventory = new InventoryWindow(joueur);
@@ -110,7 +113,7 @@ namespace ARX.view
 
                     if (newCell.EnemyInCell != null)
                     {
-                        CombatWindow combatWindow = new CombatWindow(joueur, newCell.EnemyInCell, inventory);
+                        CombatWindow combatWindow = new CombatWindow(joueur, newCell.EnemyInCell, inventory, arme);
                         combatWindow.PlayerDied += CombatWindow_PlayerDied; // Abonnez-vous à l'événement
                         combatWindow.EnemyDefeated += CombatWindow_EnemyDefeated; // Abonnez-vous à l'événement EnemyDefeated
                         combatWindow.ShowDialog();
