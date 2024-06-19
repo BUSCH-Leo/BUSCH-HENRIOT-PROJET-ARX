@@ -120,6 +120,16 @@ namespace ARX.view
 
                         playerHealth = joueur.Vie;
                     }
+                    if (newCell.DifficulteSortie != 0)
+                    {
+                        labyActuel = new Labyrinthe();
+                        labyActuel.Initialize(10, "Imparfait", 1, 10, 50, 1, false, 1, 1);
+                        GenerateGrid(labyActuel);
+                        vendeur = new Vendeur(inventory);
+                        vendeur.Show();
+                        vendeur.Focus();
+
+                    }
                 }
             }
         }
