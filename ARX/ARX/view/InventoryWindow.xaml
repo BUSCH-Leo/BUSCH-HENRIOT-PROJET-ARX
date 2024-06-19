@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARX.view"
         mc:Ignorable="d"
-        Title="InventoryWindow" Height="450" Width="800"
+        Title="Inventaire" Height="450" Width="800"
         KeyDown="Window_KeyDown">
     <Grid>
         <TabControl>
@@ -47,6 +47,10 @@
                             <TextBlock>
                                 <Run Text="Force : "/>
                                 <Run Text="{Binding Personnage.Force}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Argent : "/>
+                                <Run Text="{Binding Personnage.Money}"/>
                             </TextBlock>
                         </StackPanel>
 

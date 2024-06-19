@@ -1,0 +1,23 @@
+﻿<Window x:Class="ARX.view.CombatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARX.view"
+        mc:Ignorable="d"
+        Title="Combat" Height="600" Width="600">
+    <Grid>
+        <Image Name="BackgroundImage" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Image Name="EnemyImage" Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10">
+            <Button Name="AttackButton" Content="Attaquer" Click="AttackButton_Click" Margin="5"/>
+            <Button Name="FleeButton" Content="Fuir" Click="FleeButton_Click" Margin="5"/>
+            <Button Name="InventoryButton" Content="Inventaire" Click="InventoryButton_Click" Margin="5"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+            <TextBlock Name="PlayerHealthText" FontSize="16" Foreground="White"/>
+            <TextBlock Name="EnemyHealthText" FontSize="16" Foreground="White"/>
+        </StackPanel>
+        <TextBlock Name="EnemyNameText" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10"/>
+    </Grid>
+</Window>

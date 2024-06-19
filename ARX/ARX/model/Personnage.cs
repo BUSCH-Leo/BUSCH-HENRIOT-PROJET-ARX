@@ -17,21 +17,19 @@ namespace ARX.model
 
     public class Personnage
     {
-        public string Nom { get; set; }
         public string Classe { get; set; }
         public Arme Armes { get; set; }
-        public int VieMax { get; set; } = 100;
-        public int Vie { get; set; } = 100;
-        public int Force { get; set; } = 1;
-        public int Dexterite { get; set; } = 1;
+        public int VieMax { get; set; }
+        public int Vie { get; set; }
+        public int Force { get; set; }
+        public int Dexterite { get; set; }
         public List<Effet> Effets { get; set; }
-        public string TopSprite { get; set; }
-        public string FrontSprite { get; set; }
+        public string TopSprite { get; set; } = "";
+        public string FrontSprite { get; set; } = "";
         public int Money { get; set; }
 
-        public Personnage(string nom, string classe, Arme armes, int vieMax, int vie, int force, int dexterite, string topSprite, string frontSprite, int money, List<Effet> effets = null)
+        public Personnage(string classe, Arme armes, int vieMax, int vie, int force, int dexterite, int money, List<Effet> effets = null)
         {
-            Nom = nom;
             Classe = classe;
             Armes = armes;
             VieMax = vieMax;
@@ -39,8 +37,6 @@ namespace ARX.model
             Force = force;
             Dexterite = dexterite;
             Effets = effets;
-            TopSprite = topSprite;
-            FrontSprite = frontSprite;
             Money = money;
         }
     }
@@ -139,14 +135,12 @@ namespace ARX.model
 
     static class randomgoblin
     {
-        public static List<string> prefix = new List<string> { "Grub", "Snag", "Gri", "Mol", "War", "Sni", "Sti", "Rot", "Gob", "Fil", "Bil", "Toa", "Gru", "Sno", "Glo", "Gna", "Wre", "Slu", "Fan", "Dir", "Mag", "Muc", "Net", "Bog" };
+        public static List<string> prefix = new List<string> { "Grub", "Snag", "Gri", "Mol", "War", "Sni", "Sti", "Rot", "Gob", "Fil", "Bil", "Toa", "Gru", "Sno", "Glo", "Gna", "Wre", "Slu", "Fan", "Dir", "Mag", "Muc", "Net", "Bog", "Sus", "Am" };
 
-        public static List<string> infixes = new List<string> { "na", "kle", "toe", "ter", "ba", "der", "knu", "gle", "bli", "do", "mna", "kel", "to", "ku", "ho", "ne", "ma", "ge", "ru", "lu", "ki", "la", "mo", "wa", "pa", "tu", "fe", "da", "no", "fa", "go", "pu", "fi", "ja" };
+        public static List<string> infixes = new List<string> { "na", "kle", "toe", "ter", "ba", "der", "knu", "gle", "bli", "do", "mna", "kel", "to", "ku", "ho", "ne", "ma", "ge", "ru", "lu", "ki", "la", "mo", "wa", "pa", "tu", "fe", "da", "no", "fa", "go", "pu", "fi", "ja", "sus" , "og" };
 
-        public static List<string> suffixes = new List<string> { "sh", "ck", "tt", "ne", "zz", "nt", "nd", "ze", "le", "rt", "ge", "de", "mp", "ke", "pp", "ff", "me", "ng", "ft", "mp", "rd", "ze", "ss", "nk", "re" };
+        public static List<string> suffixes = new List<string> { "sh", "ck", "tt", "ne", "zz", "nt", "nd", "ze", "le", "rt", "ge", "de", "mp", "ke", "pp", "ff", "me", "ng", "ft", "mp", "rd", "ze", "ss", "nk", "re", "sus" , "us" };
 
-        public static List<string> titre = new List<string> { " le gobleur", " la malice", "le malicieu", " goblin depuis des générations", " le goblin", " le gabbagooblin", " le globin", " le gooblin", " le ginblo" };
+        public static List<string> titre = new List<string> { " le gobleur", " la malice", "le malicieu", " goblin depuis des générations", " le goblin", " le gabbagooblin", " le globin", " le gooblin", " le ginblo", " le maxi prouteur" , " le roi des bogoss", " l'imposteur" };
     }
-
-
 }

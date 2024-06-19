@@ -9,12 +9,15 @@ using System.Windows.Media.Imaging;
 using ARX.model;
 using System.IO;
 
-
 namespace ARX.view
 {
     public partial class GrilleJeu : UserControl
     {
+        private int playerHealth;
         public Labyrinthe labyActuel;
+        private InventoryWindow inventory;
+        private Personnage joueur;
+        private CombatWindow combatWindow;
 
         public GrilleJeu()
         {
@@ -25,6 +28,21 @@ namespace ARX.view
             this.KeyDown += new KeyEventHandler(OnButtonKeyDown);
             this.Focusable = true;
             this.Focus();
+
+            // Initialisation du joueur
+            joueur = new Personnage(
+                "", // type
+                Arme.Randarme(1), // arme
+                100, // vie max
+                100, // vie
+                1, // force
+                1, // dexterite
+                10 // pognon
+            );
+
+            // Initialisation de la fenêtre d'inventaire avec le joueur
+            inventory = new InventoryWindow(joueur);
+            inventory.InitializeInventory();
         }
 
         private void OnButtonKeyDown(object sender, KeyEventArgs e)
@@ -48,16 +66,25 @@ namespace ARX.view
                     MovePlayer(0, 1); // Move right
                     break;
             }
+
             if (e.Key == Key.E)
             {
-                InventoryWindow inventoryWindow = new InventoryWindow();
-                inventoryWindow.Show();
+                // Vérifier si la fenêtre d'inventaire est déjà ouverte
+                if (inventory == null || !inventory.IsVisible)
+                {
+                    // Si elle n'existe pas ou n'est pas visible, créer une nouvelle instance
+                    inventory = new InventoryWindow(joueur);
+                    inventory.InitializeInventory();
+                }
+
+                // Afficher la fenêtre d'inventaire
+                inventory.Show();
+                inventory.Focus(); // Assurez-vous que la fenêtre a le focus
             }
         }
 
         private void MovePlayer(int dx, int dy)
         {
-            // Trouver la position actuelle du joueur
             var currentCell = labyActuel.Cellules.Find(c => c.Joueur);
             if (currentCell == null)
                 return;
@@ -65,13 +92,11 @@ namespace ARX.view
             int newX = currentCell.X + dx;
             int newY = currentCell.Y + dy;
 
-            // Vérifier si la nouvelle position est valide
             if (newX >= 0 && newX < labyActuel.Taille && newY >= 0 && newY < labyActuel.Taille)
             {
                 var newCell = labyActuel.Cellules.Find(c => c.X == newX && c.Y == newY);
                 if (newCell != null && CanMoveTo(currentCell, newCell, dx, dy))
                 {
-                    // Mettre à jour l'orientation
                     if (dx == 1) currentCell.JoueurOrientation = 180; // Sud
                     else if (dx == -1) currentCell.JoueurOrientation = 0; // Nord
                     else if (dy == 1) currentCell.JoueurOrientation = 90; // Est
@@ -81,14 +106,22 @@ namespace ARX.view
                     newCell.Joueur = true;
                     newCell.JoueurOrientation = currentCell.JoueurOrientation;
                     RefreshGrid();
+
+                    if (newCell.EnemyInCell != null)
+                    {
+                        CombatWindow combatWindow = new CombatWindow(joueur, newCell.EnemyInCell, inventory);
+                        combatWindow.PlayerDied += CombatWindow_PlayerDied; // Abonnez-vous à l'événement
+                        combatWindow.EnemyDefeated += CombatWindow_EnemyDefeated; // Abonnez-vous à l'événement EnemyDefeated
+                        combatWindow.ShowDialog();
+
+                        playerHealth = joueur.Vie;
+                    }
                 }
             }
         }
 
-
         private bool CanMoveTo(Cellule currentCell, Cellule newCell, int dx, int dy)
         {
-            // Vérifier les murs
             if (dy == 1 && currentCell.EastWall) return false;
             if (dy == -1 && currentCell.WestWall) return false;
             if (dx == 1 && currentCell.SouthWall) return false;
@@ -103,14 +136,12 @@ namespace ARX.view
             GenerateGrid(labyActuel);
         }
 
-
         private void GenerateGrid(Labyrinthe labyrinthe)
         {
             int size = labyrinthe.Taille;
             CellGrid.RowDefinitions.Clear();
             CellGrid.ColumnDefinitions.Clear();
 
-            // Calculate the total number of cells in the grid
             int totalCells = size * size;
 
             for (int i = 0; i < size; i++)
@@ -119,17 +150,15 @@ namespace ARX.view
                 CellGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
             }
 
-            // Iterate over the total number of cells
             for (int i = 0; i < totalCells; i++)
             {
-                int row = i / size; // Calculate the row index
-                int column = i % size; // Calculate the column index
+                int row = i / size;
+                int column = i % size;
 
-                var cellule = labyrinthe.Cellules[i]; // Get the cell corresponding to the sequential order
+                var cellule = labyrinthe.Cellules[i];
 
                 Grid cellGrid = new Grid();
 
-                // Add base image of the cell
                 Image cellImage = new Image();
                 string imagePath = cellule.Fond;
                 Uri imageUri = new Uri(imagePath, UriKind.Absolute);
@@ -138,7 +167,6 @@ namespace ARX.view
                 cellImage.Stretch = Stretch.Fill;
                 cellGrid.Children.Add(cellImage);
 
-                // Add player image if player is present in the cell
                 if (cellule.Joueur)
                 {
                     Image cellImageJoueur = new Image();
@@ -148,10 +176,8 @@ namespace ARX.view
                     cellImageJoueur.Source = bitmapJoueur;
                     cellImageJoueur.Stretch = Stretch.Fill;
 
-                    // Définir le point d'origine de la rotation au centre de l'image
                     cellImageJoueur.RenderTransformOrigin = new Point(0.5, 0.5);
 
-                    // Appliquer la rotation
                     RotateTransform rotateTransform = new RotateTransform(cellule.JoueurOrientation);
                     cellImageJoueur.RenderTransform = rotateTransform;
 
@@ -162,23 +188,18 @@ namespace ARX.view
                     Enemy enemy = cellule.EnemyInCell;
                     Image enemyImage = new Image();
 
-                    // Générer le chemin d'accès aux images en fonction de l'index de l'ennemi
                     string enemyImagePath = $"pack://application:,,,/ARX;component/view/Images/enemy/{enemy.Type}{enemy.IndexImage}top.png";
 
-                    // Utiliser l'image top pour l'ennemi
                     Uri enemyImageUri = new Uri(enemyImagePath, UriKind.Absolute);
                     BitmapImage enemybitmap = new BitmapImage(enemyImageUri);
                     enemyImage.Source = enemybitmap;
 
-                    // Taille de la cellule (supposant que chaque cellule a la même taille)
-                    double cellSize = CellGrid.ActualWidth / labyActuel.Taille; // Supposant une grille carrée
+                    double cellSize = CellGrid.ActualWidth / labyActuel.Taille;
 
-                    // Définir la taille de l'image de l'ennemi
-                    enemyImage.Width = cellSize * 0.5; // Ajuster la taille selon vos besoins
-                    enemyImage.Height = cellSize * 0.5; // Ajuster la taille selon vos besoins
+                    enemyImage.Width = cellSize * 0.5;
+                    enemyImage.Height = cellSize * 0.5;
                     enemyImage.Stretch = Stretch.Uniform;
 
-                    // Ajouter l'image de l'ennemi à la grille
                     cellGrid.Children.Add(enemyImage);
                 }
                 if (cellule.DifficulteSortie > 0 && cellule.DifficulteSortie < 6)
@@ -186,38 +207,28 @@ namespace ARX.view
                     int valeur = cellule.DifficulteSortie;
                     Image enemyImage = new Image();
 
-                    // Générer le chemin d'accès aux images en fonction de l'index de l'ennemi
                     string stairsImagePath = $"pack://application:,,,/ARX;component/view/Images/stairs{valeur}.png";
 
-                    // Utiliser l'image top pour l'ennemi
                     Uri stairsImageUri = new Uri(stairsImagePath, UriKind.Absolute);
                     BitmapImage stairsbitmap = new BitmapImage(stairsImageUri);
                     enemyImage.Source = stairsbitmap;
 
-                    // Taille de la cellule (supposant que chaque cellule a la même taille)
-                    double cellSize = CellGrid.ActualWidth / labyActuel.Taille; // Supposant une grille carrée
+                    double cellSize = CellGrid.ActualWidth / labyActuel.Taille;
                     enemyImage.Stretch = Stretch.Uniform;
 
-                    // Ajouter l'image de l'ennemi à la grille
                     cellGrid.Children.Add(enemyImage);
                 }
 
-                // Add walls to the cell
                 AddWallsToCell(cellule, cellGrid);
 
-                // Ensure the cell is placed at the correct X and Y coordinates
                 CellGrid.Children.Add(cellGrid);
                 Grid.SetRow(cellGrid, row);
                 Grid.SetColumn(cellGrid, column);
             }
         }
 
-
-
-
         private void AddWallsToCell(Cellule cellule, Grid cellGrid)
         {
-            // Affichage des murs en utilisant les images spécifiées dans la propriété Mur de chaque cellule
             if (cellule.NorthWall)
             {
                 AddWallImage(cellule.Mur, 0, cellGrid);
@@ -247,19 +258,19 @@ namespace ARX.view
             wallImage.Source = bitmap;
             wallImage.Stretch = Stretch.Fill;
 
-            // Définir le point d'origine de la rotation au centre de l'image
             wallImage.RenderTransformOrigin = new Point(0.5, 0.5);
 
-            // Appliquer la rotation
             RotateTransform rotateTransform = new RotateTransform(angle);
             wallImage.RenderTransform = rotateTransform;
 
-            cellGrid.Children.Add(wallImage); // Ajout de l'image directement au conteneur de la cellule (Grid)
+            cellGrid.Children.Add(wallImage);
         }
 
         private void QuitterButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.CloseGridJeu();
         }
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -281,6 +292,33 @@ namespace ARX.view
                 await Task.Run(() => File.WriteAllText(filePath, "Game saved here"));
 
                 MessageBox.Show($"Fichier enregistré : {filePath}");
+            }
+        }
+
+        private void CombatWindow_PlayerDied(object sender, EventArgs e)
+        {
+            CloseGridJeu();
+        }
+
+        private void CloseGridJeu()
+        {
+            Window parentWindow = Window.GetWindow(this);
+            parentWindow?.Close();
+        }
+
+        private void CombatWindow_EnemyDefeated(object sender, EventArgs e)
+        {
+            CombatWindow combatWindow = sender as CombatWindow;
+            if (combatWindow != null)
+            {
+                // Trouver la cellule actuelle du joueur
+                var currentCell = labyActuel.Cellules.Find(c => c.Joueur);
+                if (currentCell != null && currentCell.EnemyInCell != null)
+                {
+                    // Retirez l'ennemi de la cellule actuelle
+                    currentCell.EnemyInCell = null;
+                    RefreshGrid(); // Rafraîchir l'affichage de la grille
+                }
             }
         }
     }

@@ -7,10 +7,21 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="view\CombatWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="view\CombatWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="view\GrilleJeu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="view\InventoryWindowCombat.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

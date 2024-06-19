@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using ARX.model;
@@ -14,21 +15,19 @@ namespace ARX.view
         public int Dexterite { get; set; }
         public int Force { get; set; }
 
-        public InventoryWindow()
+        public InventoryWindow(Personnage joueur)
         {
             InitializeComponent();
+
+            InventoryItems = new ObservableCollection<Item>();
 
             var settings = Settings.Load();
             Pseudo = settings.Pseudo;
 
-            Personnage personnage = new Personnage("NomDuPersonnage", "ClasseDuPersonnage", null, 100, 100, 1, 1, "spriteTop", "spriteFront", 0);
-
-            Vie = personnage.Vie;
-            VieMax = personnage.VieMax;
-            Dexterite = personnage.Dexterite;
-            Force = personnage.Force;
-
-            InitializeInventory();
+            Vie = joueur.Vie;
+            VieMax = joueur.VieMax;
+            Dexterite = joueur.Dexterite;
+            Force = joueur.Force;
 
             this.DataContext = new
             {
@@ -38,20 +37,14 @@ namespace ARX.view
                 VieMax = VieMax,
                 Dexterite = Dexterite,
                 Force = Force,
-                Personnage = personnage
+                Personnage = joueur
             };
         }
 
-
-        private void InitializeInventory()
+        public void InitializeInventory()
         {
-            InventoryItems = new ObservableCollection<Item>
-            {
-                new Item { Name = "Objet 1", Price = 10, IsSelected = false },
-                new Item { Name = "Objet 2", Price = 5, IsSelected = false },
-                new Item { Name = "Objet 3", Price = 15, IsSelected = false },
-                new Item { Name = "Un suce", Price = 69, IsSelected = false }
-            };
+            InventoryItems.Add(new Item { Name = "Un suce", Price = 69, IsSelected = false });
+            InventoryItems.Add(new Item { Name = "Potion de vie (+10)", Type = "Potion", Price = 69, EffectValue = 10, IsSelected = false });
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -61,15 +54,23 @@ namespace ARX.view
                 this.Close();
             }
         }
+
+        public void AddItem(Item newItem)
+        {
+            InventoryItems.Add(newItem);
+        }
+
+        public void RemoveItem(Item itemToRemove)
+        {
+            InventoryItems.Remove(itemToRemove);
+        }
     }
 
-    // Définissez votre classe Item ici (elle reste inchangée)
     public class Item
     {
         public string Name { get; set; }
         public string Type { get; set; }
         public double Price { get; set; }
-
         public int EffectValue { get; set; }
         public bool IsSelected { get; set; }
     }

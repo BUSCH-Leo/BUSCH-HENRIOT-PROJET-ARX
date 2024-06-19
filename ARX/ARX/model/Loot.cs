@@ -58,10 +58,9 @@ namespace ARX.model
 
         public static Objet Randobj(int difficulte)
         {
-            // Simulation d'une génération aléatoire d'objet
             Random random = new Random();
-            string type = "TypeAléatoire"; // Remplacer par la logique de génération du type
-            int value = random.Next(1, 101); // Exemple de génération de valeur aléatoire
+            string type = "TypeAléatoire";
+            int value = random.Next(1, 101);
             return new Objet(type, value);
         }
     }
