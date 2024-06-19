@@ -150,27 +150,29 @@ namespace ARX.model
                 }
             }
             var me = this;
-            if (type == "parfait")
+            if (type == "Parfait")
             {
                 Generateur.LabyrintheParfait(ref me, 0, 0);
             }
-            else if (type == "imparfait")
+            else if (type == "Imparfait")
             {
                 Generateur.LabyrintheImparfait(ref me, 0, 0, 10);
+
             }
-            else if (type == "plusqueparfait")
+            else if (type == "Plusqueparfait")
             {
                 Generateur.LabyrinthePlusQueParfait(ref me, 0, 0);
             }
-            SetRandomExitDifficulties(10);
+            int tailleDivisee = (int)Math.Round((double)taille / 4);
+            SetRandomExitDifficulties(1+random.Next(0,tailleDivisee));
         }
 
-        private void SetRandomExitDifficulties(int numberOfCells)
+        private void SetRandomExitDifficulties(int numberexit)
         {
             Random random = new Random();
             int cellCount = Cellules.Count;
 
-            for (int i = 0; i < numberOfCells; i++)
+            for (int i = 0; i < numberexit; i++)
             {
                 int randomIndex = random.Next(0, cellCount);
                 Cellules[randomIndex].DifficulteSortie = random.Next(1, 6);

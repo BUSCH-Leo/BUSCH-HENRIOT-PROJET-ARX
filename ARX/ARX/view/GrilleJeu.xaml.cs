@@ -24,7 +24,7 @@ namespace ARX.view
         {
             InitializeComponent();
             labyActuel = new Labyrinthe();
-            labyActuel.Initialize(10, "imparfait", 1, 10, 50, 1, false, 1, 1);
+            labyActuel.Initialize(10, "Imparfait", 1, 10, 50, 1, false, 1, 1);
             GenerateGrid(labyActuel);
             this.KeyDown += new KeyEventHandler(OnButtonKeyDown);
             this.Focusable = true;
@@ -105,12 +105,7 @@ namespace ARX.view
 
                     if (newCell.EnemyInCell != null)
                     {
-                        CombatWindow combatWindow = new CombatWindow(joueur, newCell.EnemyInCell, inventory);
-                        combatWindow.PlayerDied += CombatWindow_PlayerDied; // Abonnez-vous à l'événement
-                        combatWindow.EnemyDefeated += CombatWindow_EnemyDefeated; // Abonnez-vous à l'événement EnemyDefeated
-                        combatWindow.ShowDialog();
-
-                        playerHealth = joueur.Vie;
+                        
                     }
 
                     if (newCell.EnemyInCell != null)

@@ -6,22 +6,10 @@ using System.Diagnostics;
 
 namespace ARX.controller
 {
-    public class Loot
-    {
-        public string type;
-        public int value;
-        public int alt_value;
-
-        public Loot()
-        {
-            type = "none";
-            value = 0;
-            alt_value = 0;
-        }
-    }
 
     public class Generateur
     {
+        private static Random rnd = new Random();
         public static Loot[,] CopyLootMatrix(Loot[,] original, int taille)
         {
             Loot[,] copy = new Loot[taille, taille];
@@ -66,8 +54,6 @@ namespace ARX.controller
             {
                 return -1;
             }
-
-            Random rnd = new Random();
             int numrand = rnd.Next(0, cellules.Count);
             int voisin = cellules[numrand];
             return voisin;
@@ -156,15 +142,15 @@ namespace ARX.controller
             int cellule = (entreX + entreY * laby.Taille);
             List<bool> visite = new List<bool>(new bool[laby.Taille * laby.Taille]);
             RandomProfondeur(ref laby, ref visite, cellule);
-
+            int voisin;
+            int numrand;
             List<bool> visitevide = new List<bool>(new bool[laby.Taille * laby.Taille]);
             int y = 0;
             for (int i = 0; i < nbtrou; i++)
             {
-                Random rnd = new Random();
-                int numrand = rnd.Next(0, laby.Taille * laby.Taille);
-                int voisin = VoisinRandom(ref laby, visitevide, numrand);
-                if (laby.MatriceAdjacence[numrand][voisin] == true)
+                numrand = rnd.Next(laby.Taille * laby.Taille);
+                voisin = VoisinRandom(ref laby, visitevide, numrand);
+                if (laby.MatriceAdjacence[numrand][voisin])
                 {
                     i--;
                     y++;
@@ -174,6 +160,8 @@ namespace ARX.controller
                 {
                     laby.MatriceAdjacence[numrand][voisin] = true;
                     laby.MatriceAdjacence[voisin][numrand] = true;
+
+                    LiaisonCellules(ref laby, numrand, voisin);
                     y = 0;
                 }
             }
