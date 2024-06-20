@@ -112,6 +112,9 @@ namespace ARX.model
 
             int nbfond = 5;
             int nbmurs = 2;
+            int entreX = random.Next(0, Taille);
+            int entreY = random.Next(0, Taille);
+            entre = entreY * Taille + entreX;
 
             for (int x = 0; x < Taille; x++)
             {
@@ -149,16 +152,14 @@ namespace ARX.model
                     }
 
 
-                    if (x == 0 && y == 0)
+                    if (x == entreX && y == entreY)
                     {
                         cellule.Joueur = true;
                     }
                     Cellules.Add(cellule);
                 }
             }
-            int entreX = random.Next(1, Taille + 1);
-            int entreY = random.Next(1, Taille + 1);
-            entre = entreY * Taille + entreX;
+
             var me = this;
             if (Type == "Parfait")
             {
