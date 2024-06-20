@@ -10,6 +10,7 @@ namespace ARX.view
         private ObservableCollection<Item> _inventoryItems;
         private string _pseudo;
         private Personnage _joueur;
+        private Labyrinthe _labyrinthe;
 
         public ObservableCollection<Item> InventoryItems
         {
@@ -41,12 +42,23 @@ namespace ARX.view
             }
         }
 
-        public InventoryViewModel(Personnage joueur)
+        public Labyrinthe Labyrinthe
+        {
+            get => _labyrinthe;
+            set
+            {
+                _labyrinthe = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public InventoryViewModel(Personnage joueur, Labyrinthe labyrinthe)
         {
             InventoryItems = new ObservableCollection<Item>();
             var settings = Settings.Load();
             Pseudo = settings.Pseudo;
             Joueur = joueur;
+            Labyrinthe = labyrinthe;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -22,35 +22,44 @@ namespace ARX.view
         private Arme arme;
         private bool fogofwar = false;
         private int Difficulte;
-        private int Profondeur;
 
+        private int profondeur;
+        public int Profondeur
+        {
+            get { return profondeur; }
+            set
+            {
+                if (profondeur != value)
+                {
+                    profondeur = value;
+                }
+            }
+        }
 
         public GrilleJeu(Personnage joueur, InventoryWindow inventory, int difficulte, int profondeur)
         {
             InitializeComponent();
-            labyActuel = new Labyrinthe();
-            labyActuel.Initialize(profondeur, difficulte, fogofwar);
-            GenerateGrid(labyActuel);
+
+            this.joueur = joueur;
+            this.inventory = inventory;
+            this.Difficulte = difficulte;
+            this.Profondeur = profondeur;
+
+            this.labyActuel = new Labyrinthe(); // Initialiser le champ de classe
+            this.labyActuel.Initialize(profondeur, difficulte, fogofwar);
+
+            var viewModel = new InventoryViewModel(joueur, this.labyActuel); // Utiliser le champ de classe
+            this.DataContext = viewModel;
+
+            GenerateGrid(this.labyActuel); // Utiliser le champ de classe
             this.KeyDown += new KeyEventHandler(OnButtonKeyDown);
             this.Focusable = true;
             this.Focus();
 
-            this.joueur = joueur;
-
-            arme = joueur.Armes;
-
-            this.inventory = inventory;
-
-            vendeur = new Vendeur(inventory);
-
-            this.DataContext = new
-            {
-                joueur = joueur,
-                labyrinthe = labyActuel
-            };
-            Difficulte = difficulte;
-            Profondeur = profondeur;
+            this.arme = joueur.Armes;
+            this.vendeur = new Vendeur(inventory);
         }
+
 
         private void OnButtonKeyDown(object sender, KeyEventArgs e)
         {
@@ -105,11 +114,6 @@ namespace ARX.view
 
                     if (newCell.EnemyInCell != null)
                     {
-                        
-                    }
-
-                    if (newCell.EnemyInCell != null)
-                    {
                         CombatWindow combatWindow = new CombatWindow(joueur, newCell.EnemyInCell, inventory, arme);
                         combatWindow.PlayerDied += CombatWindow_PlayerDied;
                         combatWindow.EnemyDefeated += CombatWindow_EnemyDefeated;
@@ -125,11 +129,12 @@ namespace ARX.view
                         vendeur = new Vendeur(inventory);
                         vendeur.Show();
                         vendeur.Focus();
-
                     }
                 }
             }
         }
+
+
 
         private bool CanMoveTo(Cellule currentCell, Cellule newCell, int dx, int dy)
         {
@@ -144,7 +149,7 @@ namespace ARX.view
         private void RefreshGrid()
         {
             CellGrid.Children.Clear();
-            GenerateGrid(labyActuel);
+            GenerateGrid(labyActuel); // Utiliser le champ de classe
         }
 
         private void GenerateGrid(Labyrinthe labyrinthe)
@@ -205,7 +210,7 @@ namespace ARX.view
                     BitmapImage enemybitmap = new BitmapImage(enemyImageUri);
                     enemyImage.Source = enemybitmap;
 
-                    double cellSize = CellGrid.ActualWidth / labyActuel.Taille;
+                    double cellSize = CellGrid.ActualWidth / labyrinthe.Taille;
 
                     enemyImage.Width = cellSize * 0.5;
                     enemyImage.Height = cellSize * 0.5;
@@ -224,7 +229,7 @@ namespace ARX.view
                     BitmapImage stairsbitmap = new BitmapImage(stairsImageUri);
                     enemyImage.Source = stairsbitmap;
 
-                    double cellSize = CellGrid.ActualWidth / labyActuel.Taille;
+                    double cellSize = CellGrid.ActualWidth / labyrinthe.Taille;
                     enemyImage.Stretch = Stretch.Uniform;
 
                     cellGrid.Children.Add(enemyImage);
@@ -237,6 +242,8 @@ namespace ARX.view
                 Grid.SetColumn(cellGrid, column);
             }
         }
+
+
 
         private void AddWallsToCell(Cellule cellule, Grid cellGrid)
         {

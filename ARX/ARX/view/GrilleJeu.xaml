@@ -15,19 +15,26 @@
         <StackPanel DockPanel.Dock="Left" Margin="10">
             <TextBlock>
                 <Run Text="Vie : "/>
-                <Run Text="{Binding joueur.Vie}"/>
+                <Run Text="{Binding Joueur.Vie}"/>
             </TextBlock>
 
             <TextBlock>
                 <Run Text="Argent : "/>
-                <Run Text="{Binding joueur.Money}"/>
+                <Run Text="{Binding Joueur.Money}"/>
             </TextBlock>
-            
+
             <TextBlock Text="Difficulté : 0"/>
+
             <Separator/>
+
             <TextBlock>
                 <Run Text="Taille : "/>
-                <Run Text="{Binding labyrinthe.Taille}"/>
+                <Run Text="{Binding Labyrinthe.Taille}"/>
+            </TextBlock>
+
+            <TextBlock>
+                <Run Text="Etage : "/>
+                <Run Text="{Binding Labyrinthe.Profondeur}"/>
             </TextBlock>
         </StackPanel>
 

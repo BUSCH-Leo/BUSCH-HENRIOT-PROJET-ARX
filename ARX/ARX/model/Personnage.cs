@@ -1,6 +1,7 @@
 ﻿using ARX.model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -15,18 +16,42 @@ using System.Windows.Media.Effects;
 namespace ARX.model
 {
 
-    public class Personnage
+    public class Personnage : INotifyPropertyChanged
     {
         public string Classe { get; set; }
         public Arme Armes { get; set; }
         public int VieMax { get; set; }
-        public int Vie { get; set; }
+        private int vie;
+        public int Vie
+        {
+            get { return vie; }
+            set
+            {
+                if (vie != value)
+                {
+                    vie = value;
+                    OnPropertyChanged(nameof(Vie));
+                }
+            }
+        }
         public int Force { get; set; }
         public int Dexterite { get; set; }
         public List<Effet> Effets { get; set; }
         public string TopSprite { get; set; } = "";
         public string FrontSprite { get; set; } = "";
-        public int Money { get; set; }
+        private int money;
+        public int Money
+        {
+            get { return money; }
+            set
+            {
+                if (money != value)
+                {
+                    money = value;
+                    OnPropertyChanged(nameof(Money));
+                }
+            }
+        }
 
         public Personnage(string classe, Arme armes, int vieMax, int vie, int force, int dexterite, int money, List<Effet> effets = null)
         {
@@ -38,6 +63,13 @@ namespace ARX.model
             Dexterite = dexterite;
             Effets = effets;
             Money = money;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 

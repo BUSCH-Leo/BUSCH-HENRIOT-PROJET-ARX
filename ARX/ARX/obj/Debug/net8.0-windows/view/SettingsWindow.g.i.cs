@@ -68,7 +68,7 @@ namespace ARX {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ARX;component/view/settingswindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ARX;V1.0.0.0;component/view/settingswindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\view\SettingsWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

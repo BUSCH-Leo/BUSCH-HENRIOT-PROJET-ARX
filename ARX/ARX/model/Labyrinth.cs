@@ -4,6 +4,7 @@ using ARX.model;
 using ARX.controller;
 using System.Formats.Asn1;
 using System.IO;
+using System.ComponentModel;
 
 namespace ARX.model
 {
@@ -68,11 +69,36 @@ namespace ARX.model
         }
     }
 
-    public class Labyrinthe
+    public class Labyrinthe : INotifyPropertyChanged
     {
-        public int Taille { get; set; }
+        private int taille;
+        public int Taille
+        {
+            get => taille;
+            set
+            {
+                if (taille != value)
+                {
+                    taille = value;
+                    OnPropertyChanged(nameof(Taille));
+                }
+            }
+        }
+
         public string Type { get; set; }
-        public int Profondeur { get; set; }
+        private int profondeur;
+        public int Profondeur
+        {
+            get { return profondeur; }
+            set
+            {
+                if (profondeur != value)
+                {
+                    profondeur = value;
+                    OnPropertyChanged(nameof(Profondeur));
+                }
+            }
+        }
         public int PourcentEnnemi { get; set; }
         public int PourcentCoffre { get; set; }
         public int Difficulte { get; set; }
@@ -195,6 +221,13 @@ namespace ARX.model
                     Cellules[randomIndex].DifficulteSortie = random.Next(1, 6);
                 }
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
