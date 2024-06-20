@@ -316,19 +316,20 @@ namespace ARX.view
             Window parentWindow = Window.GetWindow(this);
             parentWindow?.Close();
         }
-
         private void CombatWindow_EnemyDefeated(object sender, EventArgs e)
         {
             CombatWindow combatWindow = sender as CombatWindow;
             if (combatWindow != null)
             {
-                // Trouver la cellule actuelle du joueur
                 var currentCell = labyActuel.Cellules.Find(c => c.Joueur);
                 if (currentCell != null && currentCell.EnemyInCell != null)
                 {
-                    // Retirez l'ennemi de la cellule actuelle
                     currentCell.EnemyInCell = null;
-                    RefreshGrid(); // Rafraîchir l'affichage de la grille
+                    if (currentCell.EnemyInCell.Stuff != null)
+                    {
+                        currentCell.loot.CombineLoot(currentCell.EnemyInCell.Stuff);
+                    }
+                    RefreshGrid();
                 }
             }
         }
