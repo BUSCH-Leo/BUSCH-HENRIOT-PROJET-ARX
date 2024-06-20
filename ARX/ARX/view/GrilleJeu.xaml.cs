@@ -324,11 +324,12 @@ namespace ARX.view
                 var currentCell = labyActuel.Cellules.Find(c => c.Joueur);
                 if (currentCell != null && currentCell.EnemyInCell != null)
                 {
-                    currentCell.EnemyInCell = null;
                     if (currentCell.EnemyInCell.Stuff != null)
                     {
                         currentCell.loot.CombineLoot(currentCell.EnemyInCell.Stuff);
                     }
+                    currentCell.EnemyInCell = null;
+
                     RefreshGrid();
                 }
             }
