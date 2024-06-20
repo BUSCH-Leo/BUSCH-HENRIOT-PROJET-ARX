@@ -94,7 +94,6 @@ namespace ARX.controller
                 }
             }
 
-            // Ajout de messages de débogage
             Trace.WriteLine($"Cellule1: ({x1}, {y1}), Cellule2: ({x2}, {y2})");
             Trace.WriteLine($"Murs Cellule1: N:{laby.Cellules[cellule1].NorthWall}, S:{laby.Cellules[cellule1].SouthWall}, E:{laby.Cellules[cellule1].EastWall}, W:{laby.Cellules[cellule1].WestWall}");
             Trace.WriteLine($"Murs Cellule2: N:{laby.Cellules[cellule2].NorthWall}, S:{laby.Cellules[cellule2].SouthWall}, E:{laby.Cellules[cellule2].EastWall}, W:{laby.Cellules[cellule2].WestWall}");

@@ -73,8 +73,8 @@ namespace ARX.view
                     MovePlayer(0, 1); // Move right
                     break;
                 case Key.E:
-                    inventory.UpdatePlayerData(joueur); // Met à jour les données du joueur dans l'inventaire
-                    inventory.ShowInventory(); // Affiche l'inventaire
+                    inventory.UpdatePlayerData(joueur);
+                    inventory.ShowInventory();
                     break;
             }
         }

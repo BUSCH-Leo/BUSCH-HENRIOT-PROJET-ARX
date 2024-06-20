@@ -15,13 +15,11 @@ namespace ARX.controller
             List<bool> vue = new List<bool>(new bool[taille * taille]);
             vue[cellule] = true;
 
-            // Calcul de la visibilité dans les quatre directions principales
             CalculerDirectionSud(matriceAdjacence, taille, cellule, vue);
             CalculerDirectionNord(matriceAdjacence, taille, cellule, vue);
             CalculerDirectionOuest(matriceAdjacence, taille, cellule, vue);
             CalculerDirectionEst(matriceAdjacence, taille, cellule, vue);
 
-            // Calcul de la visibilité dans les quatre diagonales
             NordEst(entreX, entreY, taille, vue, matriceAdjacence);
             SudEst(entreX, entreY, taille, vue, matriceAdjacence);
             SudOuest(entreX, entreY, taille, vue, matriceAdjacence);
@@ -30,7 +28,6 @@ namespace ARX.controller
             return vue;
         }
 
-        // Méthodes auxiliaires pour calculer la visibilité dans chaque direction principale
         private void CalculerDirectionSud(List<List<bool>> matriceAdjacence, int taille, int cellule, List<bool> vue)
         {
             while (cellule - taille >= 0 && matriceAdjacence[cellule][cellule - taille])
@@ -67,7 +64,6 @@ namespace ARX.controller
             }
         }
 
-        // Méthodes auxiliaires pour calculer la visibilité dans chaque diagonale
         private void NordEst(int entreX, int entreY, int taille, List<bool> vue, List<List<bool>> matriceAdjacence)
         {
             int cellule = (entreX + entreY * taille);

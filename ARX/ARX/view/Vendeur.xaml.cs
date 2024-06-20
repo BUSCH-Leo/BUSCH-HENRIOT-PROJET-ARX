@@ -58,7 +58,6 @@ namespace ARX.view
 
         private void SellButton_Click(object sender, RoutedEventArgs e)
         {
-            // Logique pour la vente d'objets sélectionnés dans l'inventaire
             var itemsToSell = InventoryItems.Where(item => item.IsSelected).ToList();
             foreach (var item in itemsToSell)
             {
@@ -69,7 +68,6 @@ namespace ARX.view
 
         private void BuyButton_Click(object sender, RoutedEventArgs e)
         {
-            // Logique pour l'achat d'objets sélectionnés dans le magasin
             var itemsToBuy = ShopItems.Where(item => item.IsSelected).ToList();
             foreach (var item in itemsToBuy)
             {

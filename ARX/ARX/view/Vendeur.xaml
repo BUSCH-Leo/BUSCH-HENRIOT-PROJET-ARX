@@ -7,10 +7,8 @@
         mc:Ignorable="d"
         Title="Shop" Height="600" Width="800">
     <Grid>
-        <!-- Background Image -->
         <Image Source="Images/background.png" Stretch="Fill" Opacity="0.5" />
 
-        <!-- Inventory List -->
         <ListBox x:Name="InventoryList" HorizontalAlignment="Left" Width="200" Margin="10,10,0,10">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -23,7 +21,6 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <!-- Shop List -->
         <ListBox x:Name="ShopList" HorizontalAlignment="Right" Width="200" Margin="0,10,10,10">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -36,7 +33,6 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <!-- Total Prices and Buttons -->
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,10,0,0">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Total Vente :" FontSize="16"/>
@@ -51,7 +47,6 @@
             <Button x:Name="BuyButton" Content="Acheter" Width="100" Margin="5" Click="BuyButton_Click"/>
         </StackPanel>
 
-        <!-- Foreground Image -->
         <Image Source="Images/foreground.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Top" Panel.ZIndex="100" Height="350" Width="350" Margin="0,224,0,0"/>
     </Grid>
 </Window>

@@ -133,9 +133,9 @@ namespace ARX.view
 
             for (int i = 0; i < numItems; i++)
             {
-                if (random.Next(0, 4) == 0) // 0 pour potion, 1 pour arme (exemple)
+                if (random.Next(0, 4) == 0)
                 {
-                    int potionValue = random.Next(5, 16); // Valeur de soin entre 5 et 15
+                    int potionValue = random.Next(5, 16);
                     Item potion = new Item
                     {
                         Name = $"Potion de vie (+{potionValue})",
@@ -148,14 +148,13 @@ namespace ARX.view
                 }
                 else
                 {
-                    // Création d'une arme aléatoire
-                    Arme arme = Arme.Randarme(10); // Difficulté par exemple
+                    Arme arme = Arme.Randarme(10);
                     Item armeItem = new Item
                     {
-                        Name = arme.Nom, // Nom de l'arme
+                        Name = arme.Nom,
                         Type = "Arme",
-                        Price = arme.Level * 10, // Prix basé sur le niveau de l'arme (exemple)
-                        EffectValue = arme.DegatsMin, // Valeur d'effet comme dégâts minimaux
+                        Price = arme.Level * 10,
+                        EffectValue = arme.DegatsMin,
                         Level = arme.Level,
                         Probabilite = arme.Probabilite,
                         Multicritique = arme.Multicritique,
